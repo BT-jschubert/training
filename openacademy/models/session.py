@@ -10,3 +10,4 @@ class OpenacademySession(models.Model):
     related_course = fields.Many2one(comodel_name="openacademy.course")
     instructor = fields.Many2one("openacademy.partner")
     responsible = fields.Many2one(comodel_name="openacademy.responsible")
+    attendees = fields.Many2many(comodel_name="res.partner")

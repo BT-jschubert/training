@@ -41,6 +41,9 @@
                                 <page string="Responsible">
                                     <field name="responsible"/>
                                 </page>
+                                <page string="Attendees">
+                                    <field name="attendees"/>
+                                </page>
                             </notebook>
                         </group>
                     </form>
