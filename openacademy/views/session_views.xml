@@ -1,0 +1,75 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="session_tree_view">
+                <field name="name">Sessions</field>
+                <field name="model">openacademy.session</field>
+                <field name="priority" eval="16"></field>
+                <field name="arch" type="xml">
+                    <tree string="Session">
+                        <field name="name"></field>
+                        <field name="start_date"></field>
+                        <field name="duration"></field>
+                        <field name="number_of_seats"></field>
+                        <field name="related_course"></field>
+                        <field name="instructor"></field>
+                        <field name="responsible"></field>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="session_form_view">
+                <field name="name">Sessions</field>
+                <field name="model">openacademy.session</field>
+                <field name="priority" eval="16"></field>
+                <field name="arch" type="xml">
+                    <form>
+                        <group colspan="4">
+                            <group col="2">
+                                <field name="name"></field>
+                                <field name="start_date"></field>
+                                <field name="duration"></field>
+                            </group>
+                            <group col="2">
+                                <field name="number_of_seats"></field>
+                                <field name="related_course"></field>
+                            </group>
+
+                            <notebook colspan="4">
+                                <page string="Instructor">
+                                    <field name="instructor"/>
+                                </page>
+                                <page string="Responsible">
+                                    <field name="responsible"/>
+                                </page>
+                            </notebook>
+                        </group>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="session_search_view">
+                <field name="name">Sessions</field>
+                <field name="model">openacademy.session</field>
+                <field name="priority" eval="16"></field>
+                <field name="arch" type="xml">
+                    <search>
+                        <field name="name"></field>
+                        <field name="start_date"></field>
+                        <field name="duration"></field>
+                        <field name="number_of_seats"></field>
+                        <field name="related_course"></field>
+                        <field name="instructor"></field>
+                        <field name="responsible"></field>
+                    </search>
+                </field>
+            </record>
+            <record model="ir.actions.act_window" id="openmenu2">
+                <field name="name">Sessions</field>
+                <field name="res_model">openacademy.session</field>
+                <field name="view_mode">tree,form</field>
+                <field name="help" type="html">
+                    <p class="oe_view_nocontent_create">If you need some help, please ask google</p>
+                </field>
+            </record>
+    </data>
+</odoo>
