@@ -1,0 +1,49 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="viewSession1">
+            <field name="name"></field>
+            <field name="model">openacademy.session</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <tree string="openacademy.session">
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="number_of_seats"/>
+                    <field name="instructor_id"/>
+                    <field name="start_date"/>
+                    <field name="related_Course_id"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="viewSession2">
+            <field name="name"></field>
+            <field name="model">openacademy.session</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <form string="Detalles de la sesion">
+                    <group colspan="4">
+                        <group>
+                         <field colspan="2" name="name"></field><field colspan="2" name="related_Course_id"/>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="People">
+                                    <field name="attendees_ids" nolabel="1"/>
+                            </page>
+                        </notebook>
+                    </group>
+
+                </form>
+            </field>
+        </record>
+            <record model="ir.ui.view" id="viewSession3">
+            <field name="name"></field>
+            <field name="model">openacademy.session</field>
+            <field name="priority" eval="3"/>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

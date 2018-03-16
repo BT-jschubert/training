@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="display_list">
+            <field name="name">Mostrar todos</field>
+            <field name="res_model">openacademy.curso</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Generic help text</p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="display_list_of_sessions">
+            <field name="name">Mostrar sesiones</field>
+            <field name="res_model">openacademy.session</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Generic help text</p>
+            </field>
+        </record>
+        <!--<record model="ir.actions.act_window" id="create_modify">
+            <field name="name">Crear o modificar</field>
+            <field name="res_model">openacademy.curso</field>
+            <field name="view_mode">tree, form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Generic help text2</p>
+            </field>
+        </record>-->
+
+        <menuitem id="menuDashboard"
+                  name="Open Academy"
+
+        />
+
+        <menuitem id="mainMenu"
+                  name="Open Academy"
+                  parent="menuDashboard"
+
+        />
+
+        <menuitem id="menuCourses" parent="mainMenu"
+                  name="Cursos" sequence = "1"
+                  action="display_list"
+        />
+
+        <menuitem id="menuSessions" parent="mainMenu"
+                  name="Sesiones" sequence = "1"
+                  action="display_list_of_sessions"
+        />
+
+    </data>
+</odoo>
