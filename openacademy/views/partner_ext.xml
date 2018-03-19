@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="ext1">
+            <field name="name"></field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <field name="email" position="after">
+                    <field name="is_instructor"/>
+                    <field name="relation_ids"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ext2">
+            <field name="name"></field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <field name="email" position="after">
+                    <field name="is_instructor"/>
+                    <field name="relation_ids"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

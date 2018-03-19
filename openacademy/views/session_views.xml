@@ -12,6 +12,9 @@
                     <field name="instructor_id"/>
                     <field name="start_date"/>
                     <field name="related_Course_id"/>
+                    <field name="percentage_of_seats_taken"/>
+                    <field name="end_date"/>
+                    <field name="course_description"/>
                 </tree>
             </field>
         </record>
@@ -23,15 +26,25 @@
                 <form string="Detalles de la sesion">
                     <group colspan="4">
                         <group>
-                         <field colspan="2" name="name"></field><field colspan="2" name="related_Course_id"/>
+                            <field name="name"/>
+                            <field name="start_date"/>
+                            <field name="number_of_seats"/>
+                            <field name="instructor_id"/>
+                            <field name="start_date"/>
+                            <field name="related_Course_id"/>
+                            <field widget='progressbar' name="percentage_of_seats_taken"/>
+                            <field name="start_date"/>
+                            <field name="duration"/>
+                            <field name="end_date"/>
+
                         </group>
                         <notebook colspan="4">
                             <page string="People">
                                     <field name="attendees_ids" nolabel="1"/>
+
                             </page>
                         </notebook>
                     </group>
-
                 </form>
             </field>
         </record>

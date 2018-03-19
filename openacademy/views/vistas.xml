@@ -23,7 +23,7 @@
                         <group>
                          <field colspan="2" name="nombre"></field>
                          <field colspan="2" name="responsible_id"></field>
-
+                         <field name="has_full_sessions"/>
                         </group>
 
                         <notebook colspan="4">
