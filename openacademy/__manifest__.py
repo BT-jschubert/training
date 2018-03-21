@@ -10,5 +10,6 @@
     'data': ['views/course_views.xml',
              'views/session_views.xml',
              'views/menu.xml',
-             'views/partner_ext_views.xml']
+             'views/partner_ext_views.xml',
+             'wizard/wizard.xml']
 }

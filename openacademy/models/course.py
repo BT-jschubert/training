@@ -11,6 +11,7 @@ class OpenacademyCourse(models.Model):
     description = fields.Text(string="Description", help="Description of the course")
     sessions = fields.One2many(comodel_name="openacademy.session", inverse_name="related_course")
     full_sessions = fields.Boolean(string="Fulfilled sessions", search='_get_full_sessions')
+    responsible_id = fields.Many2one(comodel_name="res.users",string="Course's Responsible")
 
     def _get_full_sessions(self, operator, value):
         course_ids = []

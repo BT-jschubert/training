@@ -37,36 +37,36 @@
             <field name="name">Session 1</field>
             <field name="duration">5.1</field>
             <field name="number_of_seats">30</field>
-            <field name="related_course" ref="openacademy.demo1"></field>
-            <field name="instructor" ref="openacademy.partner1"></field>
-            <field name="responsible" ref="openacademy.responsible1"></field>
+            <field name="related_course" ref="openacademy.demo1"/>
+            <field name="instructor" ref="openacademy.partner1"/>
+            <field name="responsible" ref="openacademy.responsible1"/>
         </record>
 
         <record model="openacademy.session" id="demo7">
             <field name="name">Session 2</field>
             <field name="duration">5.1</field>
             <field name="number_of_seats">30</field>
-            <field name="related_course" ref="openacademy.demo1"></field>
-            <field name="instructor" ref="openacademy.partner1"></field>
-            <field name="responsible" ref="openacademy.responsible1"></field>
+            <field name="related_course" ref="openacademy.demo1"/>
+            <field name="instructor" ref="openacademy.partner1"/>
+            <field name="responsible" ref="openacademy.responsible1"/>
         </record>
 
         <record model="openacademy.session" id="demo8">
             <field name="name">Session 3</field>
             <field name="duration">5.1</field>
             <field name="number_of_seats">30</field>
-            <field name="related_course" ref="openacademy.demo1"></field>
-            <field name="instructor" ref="openacademy.partner1"></field>
-            <field name="responsible" ref="openacademy.responsible1"></field>
+            <field name="related_course" ref="openacademy.demo1"/>
+            <field name="instructor" ref="openacademy.partner1"/>
+            <field name="responsible" ref="openacademy.responsible1"/>
         </record>
 
         <record model="openacademy.session" id="demo9">
             <field name="name">Session 4</field>
             <field name="duration">5.1</field>
             <field name="number_of_seats">30</field>
-            <field name="related_course" ref="openacademy.demo1"></field>
-            <field name="instructor" ref="openacademy.partner1"></field>
-            <field name="responsible" ref="openacademy.responsible1"></field>
+            <field name="related_course" ref="openacademy.demo1"/>
+            <field name="instructor" ref="openacademy.partner1"/>
+            <field name="responsible" ref="openacademy.responsible1"/>
         </record>
 
         <record model="res.partner.category" id="teacher">
@@ -75,12 +75,12 @@
 
         <record model="res.partner.category" id="teacher2">
             <field name="name">Level 1</field>
-            <field name="parent_id" ref="teacher"></field>
+            <field name="parent_id" ref="teacher"/>
         </record>
 
         <record model="res.partner.category" id="teacher3">
             <field name="name">Level 2</field>
-            <field name="parent_id" ref="teacher"></field>
+            <field name="parent_id" ref="teacher"/>
         </record>
 
         <!--<record model="res.partner.category" id="teacher3">-->

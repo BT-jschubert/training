@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record id="open_session_form_action" model="ir.actions.act_window">
+            <field name="name">Session Wizard</field>
+            <field name="res_model">openacademy.session_wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="current_session"></field>
+                        <field name="partners"/>
+                        <button type="object" name="save_data" string="Add"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="open_session_wizard"
+                    name="Session Wizard"
+                    src_model="openacademy.session"
+                    res_model="openacademy.session_wizard"
+                    view_mode="form"
+                    target="new"
+                    key2="client_action_multi"/>
+    </data>
+</odoo>

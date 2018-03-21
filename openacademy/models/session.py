@@ -3,6 +3,7 @@ from datetime import timedelta, datetime
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 from odoo.exceptions import ValidationError
 
+
 class OpenacademySession(models.Model):
         _name = 'openacademy.session'
         _sql_constraints=[]
@@ -15,15 +16,23 @@ class OpenacademySession(models.Model):
         instructor = fields.Many2one("res.partner", domain=[("is_instructor", "=", "True")])
         responsible = fields.Many2one(comodel_name="openacademy.responsible")
         attendees = fields.Many2many("res.partner", "session_partner_rel")
+        num_attendees = fields.Integer(compute='_get_number_attendees', store=True)
         remain_seats = fields.Integer(string="Remain seats %", compute='_get_remain_seats')
         end_date = fields.Datetime(string="End date", compute='_get_end_date', inverse='_set_end_date')
+        color = fields.Integer(string="Card color", default=0)
+
+
+        @api.depends('attendees')
+        def _get_number_attendees(self):
+            for r in self:
+                r.num_attendees = len(r.attendees)
 
         @api.depends('number_of_seats', 'attendees')
         def _get_remain_seats(self):
             for r in self:
                 if r.number_of_seats > 0:
                     r.remain_seats = 100 - ((len(r.attendees) * 100) / r.number_of_seats)
-                if r.remain_seats < 0:
+                if r.remain_seats <= 0:
                     r.remain_seats = 0
 
         @api.depends('start_date', 'duration')
@@ -81,3 +90,18 @@ class OpenacademySession(models.Model):
             for r in self:
                 if r.instructor in r.attendees:
                     raise ValidationError
+
+        @api.multi
+        def open_record(self):
+            for r in self:
+                form_id = r.env.ref("openacademy.session_form_view").id
+                return {
+                    'type': 'ir.actions.act_window',
+                    'res_model': r._name,
+                    'view_type': 'form',
+                    'view_mode': 'form',
+                    'view_id' : form_id,
+                    'target': 'current',
+                    'res_id': r.id,
+                    'context': {},
+                }
