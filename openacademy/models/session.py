@@ -10,7 +10,7 @@ class Session(models.Model):
     name = fields.Text(required=True)
     start_date = fields.Datetime(default=fields.Date.today())
     duration=fields.Float()
-    number_of_seats=fields.Integer()
+    number_of_seats=fields.Integer(default='1')
     related_Course_id=fields.Many2one('openacademy.curso')
     instructor_id=fields.Many2one('res.partner', domain= lambda self :  self._get_instructors_and_teachers())
     attendees_ids = fields.Many2many('res.partner','session_partner_rel')
@@ -26,8 +26,8 @@ class Session(models.Model):
         for each in self:
             if len(each.attendees_ids) != 0:
                 each.percentage_of_seats_taken = len(each.attendees_ids)*100/each.number_of_seats
-        else:
-            each.percentage_of_seats_taken = 0
+            else:
+                each.percentage_of_seats_taken = 0
 
     @api.depends('duration','start_date')
     def _get_end_date(self):
@@ -90,7 +90,7 @@ class Session(models.Model):
     #         tmp_datetime_td =  datetime.strptime(each.end_date,DATE_FORMAT) - datetime.strptime(each.start_date,DATE_FORMAT)
     #         each.duration = tmp_datetime_td.total_seconds()/3600
 
-    @api.depends('attendees_ids')
+    @api.depends('attendees_ids','number_of_seats')
     def _get_n_of_attendees(self):
         for each in self:
             each.n_of_attendees = len(each.attendees_ids)

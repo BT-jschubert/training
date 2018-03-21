@@ -10,7 +10,7 @@
                     <field name="start_date"/>
                     <field name="number_of_seats"/>
                     <field name="instructor_id"/>
-                    <field name="start_date"/>
+                    <field name="end_date"/>
                     <field name="related_Course_id"/>
                     <field name="percentage_of_seats_taken"/>
                     <field name="duration"/>

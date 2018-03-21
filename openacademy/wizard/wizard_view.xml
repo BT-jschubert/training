@@ -8,11 +8,15 @@
                 <form string="Detalles de la sesion">
                     <group colspan="4">
                         <group>
-                            <field name="session_relation"/>
+                            <field name="session_relations"/>
                             <field name="partner_relation"/>
-                            <button type="object" name="add2session" string="add"/>
+                            <!--<button type="object" name="add2session" string="add"/>-->
                         </group>
                     </group>
+                    <footer>
+                     <button type="object" name="add2sessions" string="Add"/>
+                    <button special="cancel" string="Cancel"/>
+                    </footer>
                 </form>
             </field>
         </record>
