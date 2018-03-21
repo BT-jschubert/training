@@ -14,16 +14,20 @@ class Session(models.Model):
     related_Course_id=fields.Many2one('openacademy.curso')
     instructor_id=fields.Many2one('res.partner', domain= lambda self :  self._get_instructors_and_teachers())
     attendees_ids = fields.Many2many('res.partner','session_partner_rel')
-    percentage_of_seats_taken = fields.Integer(compute='_percentage_seats_taken',store=True)
+    percentage_of_seats_taken = fields.Integer(compute='_percentage_seats_taken')
     end_date=fields.Datetime(compute='_get_end_date',inverse='_set_end_date')
     course_description=fields.Text(related='related_Course_id.descripcion')
-
+    color = fields.Integer()
+    n_of_attendees = fields.Integer(compute='_get_n_of_attendees',store=True)
+    # duration_hours=fields.Integer(compute='_get_hours')
 
     @api.depends('number_of_seats','attendees_ids')
     def _percentage_seats_taken(self):
         for each in self:
-            if each.number_of_seats != 0:
+            if len(each.attendees_ids) != 0:
                 each.percentage_of_seats_taken = len(each.attendees_ids)*100/each.number_of_seats
+        else:
+            each.percentage_of_seats_taken = 0
 
     @api.depends('duration','start_date')
     def _get_end_date(self):
@@ -67,3 +71,26 @@ class Session(models.Model):
             raise ValidationError(_('Error! The Instrcutor cant be an attendee'))
         else:
             return
+
+    @api.multi
+    def launch_formview(self):
+        form_id = self.env.ref('openacademy.viewSession2').id
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': self._name,
+            'view_id': form_id,
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_id': self.id,
+            'context': {}
+        }
+
+    # def _get_hours(self):
+    #     for each in self:
+    #         tmp_datetime_td =  datetime.strptime(each.end_date,DATE_FORMAT) - datetime.strptime(each.start_date,DATE_FORMAT)
+    #         each.duration = tmp_datetime_td.total_seconds()/3600
+
+    @api.depends('attendees_ids')
+    def _get_n_of_attendees(self):
+        for each in self:
+            each.n_of_attendees = len(each.attendees_ids)

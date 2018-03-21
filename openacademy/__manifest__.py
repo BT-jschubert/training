@@ -12,7 +12,8 @@
         'views/vistas.xml',
         'views/menu.xml',
         'views/session_views.xml',
-        'views/partner_ext.xml'
+        'views/partner_ext.xml',
+        'wizard/wizard_view.xml',
     ],
     #data files to be loaded ONLY while in demo
     'demo' : [
