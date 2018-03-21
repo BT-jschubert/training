@@ -3,6 +3,7 @@ from odoo import api
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT as DATE_FORMAT
 from datetime import datetime
 from datetime import timedelta
+from odoo.exceptions import ValidationError
 
 class Session(models.Model):
     _name = 'openacademy.session'
@@ -16,6 +17,7 @@ class Session(models.Model):
     percentage_of_seats_taken = fields.Integer(compute='_percentage_seats_taken',store=True)
     end_date=fields.Datetime(compute='_get_end_date',inverse='_set_end_date')
     course_description=fields.Text(related='related_Course_id.descripcion')
+
 
     @api.depends('number_of_seats','attendees_ids')
     def _percentage_seats_taken(self):
@@ -40,3 +42,28 @@ class Session(models.Model):
         #isinstructor_id = self.env.ref('res.partner.is_instructor')
         return ['|','|',('is_instructor',"=",True),('category_id',"=",teacher1_id),('category_id',"=",teacher3_id)]
 
+    @api.onchange('number_of_seats','attendees_ids')
+    def _check_number_of_seats(self):
+        if self.number_of_seats < 0:
+          return {
+              'warning' : {
+                  'title' : 'error in number of seats',
+                  'message' : 'The number of seats for a session cant be negative'
+              }
+          }
+        elif self.number_of_seats < len(self.attendees_ids):
+            return {
+                'warning': {
+                    'title': 'error in number of seats',
+                    'message': 'The number of seats for a session cant be smaller than the number of attendees'
+                }
+            }
+        else:
+            return
+
+    @api.constrains('instructor_id','attendees_ids')
+    def _check_if_instructor_is_attendee(self):
+        if self.instructor_id in self.attendees_ids:
+            raise ValidationError(_('Error! The Instrcutor cant be an attendee'))
+        else:
+            return
