@@ -8,11 +8,13 @@
                     <tree string="Session">
                         <field name="name"></field>
                         <field name="start_date"></field>
+                        <field name="end_date"></field>
                         <field name="duration"></field>
                         <field name="number_of_seats"></field>
                         <field name="related_course"></field>
                         <field name="instructor"></field>
                         <field name="responsible"></field>
+                        <field name="remain_seats" widget="progressbar"/>
                     </tree>
                 </field>
             </record>
@@ -27,11 +29,13 @@
                             <group col="2">
                                 <field name="name"></field>
                                 <field name="start_date"></field>
+                                <field name="end_date"></field>
                                 <field name="duration"></field>
                             </group>
                             <group col="2">
                                 <field name="number_of_seats"></field>
                                 <field name="related_course"></field>
+                                <field name="remain_seats" widget="progressbar"/>
                             </group>
 
                             <notebook colspan="4">
@@ -66,6 +70,7 @@
                     </search>
                 </field>
             </record>
+
             <record model="ir.actions.act_window" id="openmenu2">
                 <field name="name">Sessions</field>
                 <field name="res_model">openacademy.session</field>

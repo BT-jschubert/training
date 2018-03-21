@@ -9,6 +9,7 @@
                     <field name="name"></field>
                     <field name="description"></field>
                     <field name="sessions"></field>
+                    <field name="full_sessions"></field>
                 </tree>
             </field>
         </record>
@@ -29,6 +30,7 @@
                             </page>
                             <page string="Sessions">
                                 <field name="sessions" />
+                                <field name="full_sessions"/>
                             </page>
                         </notebook>
                     </group>

@@ -9,5 +9,6 @@
     'demo': ['demo/demo_data.xml'],
     'data': ['views/course_views.xml',
              'views/session_views.xml',
-             'views/menu.xml']
+             'views/menu.xml',
+             'views/partner_ext_views.xml']
 }
