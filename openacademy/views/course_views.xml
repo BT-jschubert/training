@@ -57,6 +57,19 @@
             </field>
         </record>
 
+        <!--<record model="ir.ui.view" id="session_ext_view">-->
+            <!--<field name="name"/>-->
+            <!--<field name="model">base</field>-->
+            <!--<field name="inherit_id" ref="base.view_partner_form"/>-->
+            <!--<field name="priority" eval="16"/>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<field name="mobile" position="after">-->
+                    <!--<field name="is_instructor"/>-->
+                    <!--<field name="session_ids"/>-->
+                <!--</field>-->
+            <!--</field>-->
+        <!--</record>-->
+
         <record model="ir.actions.act_window" id="openmenu1">
             <field name="name">Courses</field>
             <field name="res_model">openacademy.course</field>

@@ -1,7 +1,7 @@
 from odoo import fields, models, _, api
 
 
-class SessionWizard(models.Model):
+class SessionWizard(models.TransientModel):
     _name = "openacademy.session_wizard"
 
     current_session = fields.Many2one(comodel_name="openacademy.session",
@@ -10,5 +10,6 @@ class SessionWizard(models.Model):
 
     @api.multi
     def save_data(self):
-        for r in self:
-            r._context.get('active_model')
+        for r in self.current_session:
+            r.current_session.attendees = r.partners
+

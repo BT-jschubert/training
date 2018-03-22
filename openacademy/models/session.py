@@ -20,6 +20,8 @@ class OpenacademySession(models.Model):
         remain_seats = fields.Integer(string="Remain seats %", compute='_get_remain_seats')
         end_date = fields.Datetime(string="End date", compute='_get_end_date', inverse='_set_end_date')
         color = fields.Integer(string="Card color", default=0)
+        state = fields.Selection([('draft', 'Draft'), ('confirmed', 'Confirmed'), ('done', 'Done')],
+                                         string="State of session", default='draft')
 
 
         @api.depends('attendees')
@@ -89,7 +91,7 @@ class OpenacademySession(models.Model):
         def _constraint_instructor(self):
             for r in self:
                 if r.instructor in r.attendees:
-                    raise ValidationError
+                    raise ValidationError(_("Instructor cannot be between attendees"))
 
         @api.multi
         def open_record(self):
@@ -105,3 +107,23 @@ class OpenacademySession(models.Model):
                     'res_id': r.id,
                     'context': {},
                 }
+
+
+        def move_confirmed(self):
+            for r in self:
+                r.state = 'confirmed'
+
+        def move_done(self):
+            for r in self:
+                r.state = 'done'
+
+        def move_draft(self):
+            for r in self:
+                r.state = 'draft'
+
+        @api.model
+        def movedone_cron(self):
+            for r in self.search([]):
+                if r.state == 'confirmed' and r.end_date < fields.Date.today():
+                    r.state = 'done'
+

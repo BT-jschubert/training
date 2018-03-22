@@ -27,6 +27,14 @@
                 <field name="priority" eval="16"/>
                 <field name="arch" type="xml">
                     <form>
+                        <header>
+                            <button name="move_confirmed" type="object" string="Move to confirmed" class="oe_highlight"/>
+                            <button name="move_done" type="object" string="Move to done" class="oe_highlight"/>
+
+                            <button name="move_draft" type="object" string="Move to draft" class="oe_highlight"/>
+
+                            <field name="state" widget="statusbar"/>
+                        </header>
                         <group colspan="4">
                             <group col="2">
                                 <field name="name"/>

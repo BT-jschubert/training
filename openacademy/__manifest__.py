@@ -11,5 +11,9 @@
              'views/session_views.xml',
              'views/menu.xml',
              'views/partner_ext_views.xml',
-             'wizard/wizard.xml']
+             'wizard/wizard.xml',
+             'data/session_cron.xml',
+             'security/security.xml',
+             'security/ir.model.access.csv',
+             'reports/session_report.xml']
 }

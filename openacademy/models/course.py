@@ -7,7 +7,7 @@ class OpenacademyCourse(models.Model):
                          'Description and name must be different'),
                         ('unique_name', 'UNIQUE(name)', 'Course name already exists')]
 
-    name = fields.Char(string="Course title", required=True, help="Name of the course")
+    name = fields.Char(string="Course title", required=True, help="Name of the course", translate=True)
     description = fields.Text(string="Description", help="Description of the course")
     sessions = fields.One2many(comodel_name="openacademy.session", inverse_name="related_course")
     full_sessions = fields.Boolean(string="Fulfilled sessions", search='_get_full_sessions')

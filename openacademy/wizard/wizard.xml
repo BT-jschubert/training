@@ -11,8 +11,11 @@
                     <group>
                         <field name="current_session"></field>
                         <field name="partners"/>
-                        <button type="object" name="save_data" string="Add"/>
                     </group>
+                        <footer>
+                            <button name="save_data" type="object" string="Save" class="oe_highlight"/>
+                            <button special="cancel" string="Cancel"/>
+                        </footer>
                 </form>
             </field>
         </record>
