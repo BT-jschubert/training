@@ -16,7 +16,9 @@
         'wizard/wizard_view.xml',
         'data/cron_donedate.xml',
         'security/security.xml',
-        'security/ir.model.access.csv'
+        'security/ir.model.access.csv',
+        'report/session.xml',
+        'report/report_view.xml'
     ],
     #data files to be loaded ONLY while in demo
     'demo' : [

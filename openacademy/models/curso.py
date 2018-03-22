@@ -5,7 +5,7 @@ class Curso(models.Model):
     _rec_name = "nombre"
     _sql_constraints = [('check_different_title_description', 'CHECK(nombre != descripcion)', 'Name and description cant be the same!'),
                         ('check_unique_title', 'UNIQUE(nombre)','Name should be unique')]
-    nombre = fields.Text(required=True)
+    nombre = fields.Text(required=True,translate=True)
     descripcion = fields.Text(default='Descripcion generica')
     responsible_id=fields.Many2one('res.users')
     session_ids = fields.One2many('openacademy.session','related_Course_id')
