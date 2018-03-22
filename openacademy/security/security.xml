@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record model="res.groups" id="managergroup">
+             <field name="name">Open Academy Managers</field>
+        </record>
+        <record model="ir.rule" id="responsible_can_mod_ulink_rule">
+            <field name="name">Only course resp can mod or ulink a session</field>
+            <field name="model_id" ref="model_openacademy_curso"/>
+            <field name="groups" eval="[(4,ref('managergroup'))]"/>
+            <field name="perm_read" eval="0"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_ulink" eval="1"/>
+            <field name="domain_force">[('responsible_id','=',uid)]</field>
+        </record>
+        <record model="ir.rule" id="if_no_resp_everyone_can_mod">
+            <field name="name">In absence of responsible,everyone can edit and ulink</field>
+            <field name="model_id" ref="model_openacademy_curso"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_ulink" eval="1"/>
+            <field name="domain_force">[('responsible_id','!=',False)]</field>
+        </record>
+    </data>
+</odoo>

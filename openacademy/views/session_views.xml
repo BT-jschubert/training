@@ -25,9 +25,13 @@
             <field name="priority" eval="2"/>
             <field name="arch" type="xml">
                 <form string="Detalles de la sesion">
+                    <header>
+                            <field name="state" widget="statusbar"/>
+                    </header>
                     <group colspan="4">
                         <group>
                             <field name="name"/>
+                            <button type="object" name="advance_status" string="continue"/>
                             <field name="start_date"/>
                             <field name="number_of_seats"/>
                             <field name="instructor_id"/>

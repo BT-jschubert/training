@@ -14,8 +14,9 @@
                         </group>
                     </group>
                     <footer>
-                     <button type="object" name="add2sessions" string="Add"/>
-                    <button special="cancel" string="Cancel"/>
+                        <button type="object" name="add2sessions" string="Add"/>
+                        or
+                        <button special="cancel" string="Cancel"/>
                     </footer>
                 </form>
             </field>
