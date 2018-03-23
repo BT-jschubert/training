@@ -35,12 +35,5 @@
             <field name="instructor" ref="openacademy.partner1"/>
             <field name="responsible" ref="openacademy.responsible1"/>
         </record>
-
-
-
-        <!--<record model="res.partner.category" id="teacher3">-->
-            <!--<field name="name">Teacher / Level 2</field>-->
-            <!--<field name="parent_id">teacher</field>-->
-        <!--</record>-->
     </data>
 </odoo>
