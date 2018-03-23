@@ -13,7 +13,7 @@ class Wizardo(models.TransientModel):
         #solution with old API
         #ids_attendess=[(4, x.id) for x in self.partner_relation]
         #self.session_relation.write({'attendees_ids': ids_attendess})
-        self.session_relation.attendees_ids |= self.partner_relation
+        self.session_relations.attendees_ids |= self.partner_relation
 
     def add2sessions(self):
         #solution with old API

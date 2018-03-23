@@ -113,6 +113,7 @@ class Session(models.Model):
 
     @api.model
     def check_if_done(self):
-        for each in self.search([]):
+       for each in self.search([]):
             if each.state == 'confirmed' and each.end_date < fields.Date.today():
                 each.state = 'done'
+

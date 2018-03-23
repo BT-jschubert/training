@@ -20,6 +20,8 @@ class Curso(models.Model):
             for session in course.session_ids:
                 full_sessions = session.search([('related_Course_id','=',course.id),
                                 ('percentage_of_seats_taken','=',100)])
+                # result = full_sessions == session
+                # course.has_full_sessions = result
                 full_session_ids = [x.id for x in full_sessions]
                 session_ids = [x.id for x in course.session_ids]
                 result = list(set(full_session_ids).intersection(set(session_ids)))
