@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record model="openacademy.course" id="course_demo1">
+            <field name="name">Make models</field>
+            <field name="description">This course explains how to make a model</field>
+        </record>
+
+        <record model="openacademy.course" id="course_demo2">
+            <field name="name">Make forms</field>
+            <field name="description">This course explains how to make a form</field>
+        </record>
+
+        <record model="openacademy.course" id="course_demo3">
+            <field name="name">Create demo data</field>
+            <field name="description">This course explains how to make some demo data</field>
+        </record>
+
+        <record model="openacademy.course" id="course_demo4">
+            <field name="name">Create real data</field>
+            <field name="description">This course explains how to make some real data</field>
+        </record>
+
+        <record model="openacademy.course" id="course_demo5">
+            <field name="name">Make views</field>
+            <field name="description">This course explains how to make a view</field>
+        </record>
+    </data>
+</odoo>
