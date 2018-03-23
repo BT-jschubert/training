@@ -12,7 +12,7 @@ class OpenacademyCourse(models.Model):
     sessions = fields.One2many("openacademy.session", "related_course")
     full_sessions = fields.Boolean(string="Fulfilled sessions", compute="_get_full_sessions",
                                    search='_search_full_sessions')
-    responsible_id = fields.Many2one("res.users",string="Course's Responsible")
+    responsible_id = fields.Many2one("res.users", string="Course's Responsible")
 
     def _search_full_sessions(self, operator, value):
         course_ids = []
