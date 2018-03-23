@@ -10,13 +10,13 @@
              'demo/course_demo_data.xml',
              'demo/session_demo_data.xml'
              ],
-    'data': ['views/course_views.xml',
+    'data': ['data/session_cron.xml',
+             'views/course_views.xml',
              'views/session_views.xml',
              'views/menu.xml',
              'views/partner_ext_views.xml',
              'wizard/wizard.xml',
-             'data/session_cron.xml',
+             'reports/session_report.xml',
              'security/security.xml',
-             'security/ir.model.access.csv',
-             'reports/session_report.xml']
+             'security/ir.model.access.csv']
 }
