@@ -159,7 +159,7 @@
             </field>
         </record>
 
-        <record model="ir.actions.act_window" id="openmenu2">
+        <record model="ir.actions.act_window" id="act_menu_sessions">
             <field name="name">Sessions</field>
             <field name="res_model">openacademy.session</field>
             <field name="view_mode">tree,form,kanban,calendar,gantt,graph</field>
