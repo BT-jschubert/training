@@ -11,17 +11,16 @@ class OpenacademySession(models.Model):
         start_date = fields.Datetime(string="Session date", default=fields.Date.today())
         duration = fields.Float(string="Duration time", required=True)
         number_of_seats = fields.Integer(string="Number of seats")
-        related_course = fields.Many2one(comodel_name="openacademy.course")
+        related_course = fields.Many2one("openacademy.course", string="Course")
         instructor = fields.Many2one("res.partner", domain=[("is_instructor", "=", "True")])
-        responsible = fields.Many2one(comodel_name="openacademy.responsible")
+        responsible = fields.Many2one("openacademy.responsible", string="Course's responsible")
         attendees = fields.Many2many("res.partner", "session_partner_rel")
         num_attendees = fields.Integer(compute='_get_number_attendees', store=True)
         remain_seats = fields.Integer(string="Remain seats %", compute='_get_remain_seats')
         end_date = fields.Datetime(string="End date", compute='_get_end_date', inverse='_set_end_date')
         color = fields.Integer(string="Card color", default=0)
         state = fields.Selection([('draft', 'Draft'), ('confirmed', 'Confirmed'), ('done', 'Done')],
-                                         string="State of session", default='draft')
-
+                                 string="State of session", default='draft')
 
         @api.depends('attendees')
         def _get_number_attendees(self):
@@ -85,7 +84,7 @@ class OpenacademySession(models.Model):
                         }
                     }
 
-        @api.constrains('instructor','attendees')
+        @api.constrains('instructor', 'attendees')
         def _constraint_instructor(self):
             for r in self:
                 if r.instructor in r.attendees:
@@ -100,12 +99,11 @@ class OpenacademySession(models.Model):
                     'res_model': r._name,
                     'view_type': 'form',
                     'view_mode': 'form',
-                    'view_id' : form_id,
+                    'view_id': form_id,
                     'target': 'current',
                     'res_id': r.id,
                     'context': {},
                 }
-
 
         def move_confirmed(self):
             for r in self:
@@ -124,4 +122,3 @@ class OpenacademySession(models.Model):
             for r in self.search([]):
                 if r.state == 'confirmed' and r.end_date < fields.Date.today():
                     r.state = 'done'
-
