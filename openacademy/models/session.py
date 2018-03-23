@@ -6,7 +6,6 @@ from odoo.exceptions import ValidationError
 
 class OpenacademySession(models.Model):
         _name = 'openacademy.session'
-        _sql_constraints=[]
 
         name = fields.Char(string="Session title", required=True)
         start_date = fields.Datetime(string="Session date", default=fields.Date.today())
