@@ -43,7 +43,6 @@ class OpenacademySession(models.Model):
                 r.end_date = datetime.strptime(r.start_date, DEFAULT_SERVER_DATETIME_FORMAT)\
                              + timedelta(seconds=(r.duration*3600))
 
-        # @api.depends('end_date')
         def _set_end_date(self):
             for r in self:
                 if not r.start_date or (r.end_date < r.start_date):
