@@ -3,14 +3,14 @@
          <record model="ir.ui.view" id="course_tree_view">
             <field name="name">Courses</field>
             <field name="model">openacademy.course</field>
-            <field name="priority" eval="16"></field>
+            <field name="priority" eval="16"/>
             <field name="arch" type="xml">
                 <tree string="Course">
-                    <field name="name"></field>
-                    <field name="description"></field>
+                    <field name="name"/>
+                    <field name="description"/>
                     <field name="responsible_id"/>
-                    <field name="sessions"></field>
-                    <field name="full_sessions"></field>
+                    <field name="sessions"/>
+                    <field name="full_sessions"/>
                 </tree>
             </field>
         </record>
@@ -18,17 +18,17 @@
         <record model="ir.ui.view" id="course_form_view">
             <field name="name">Courses</field>
             <field name="model">openacademy.course</field>
-            <field name="priority" eval="16"></field>
+            <field name="priority" eval="16"/>
             <field name="arch" type="xml">
                 <form>
                     <group colspan="4">
                         <group col="4">
-                            <field name="name"></field>
+                            <field name="name"/>
                             <field name="responsible_id"/>
                         </group>
                         <notebook colspan="4">
                             <page string="Description">
-                                <field name="description" nolabel="1"></field>
+                                <field name="description" nolabel="1"/>
                             </page>
                             <page string="Sessions">
                                 <field name="sessions" />
@@ -43,10 +43,10 @@
         <record model="ir.ui.view" id="course_search_view">
             <field name="name">Courses</field>
             <field name="model">openacademy.course</field>
-            <field name="priority" eval="16"></field>
+            <field name="priority" eval="16"/>
             <field name="arch" type="xml">
                 <search>
-                    <field name="responsible_id"></field>
+                    <field name="responsible_id"/>
                     <filter name="self_responsible" string="My courses"
                         domain="[('responsible_id','=',uid)]" >
                     </filter>
