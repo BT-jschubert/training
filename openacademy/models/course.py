@@ -9,7 +9,7 @@ class OpenacademyCourse(models.Model):
 
     name = fields.Char(string="Course title", required=True, help="Name of the course", translate=True)
     description = fields.Text(string="Description", help="Description of the course")
-    sessions = fields.One2many(comodel_name="openacademy.session", inverse_name="related_course")
+    sessions = fields.One2many("openacademy.session","related_course")
     full_sessions = fields.Boolean(string="Fulfilled sessions", search='_get_full_sessions')
     responsible_id = fields.Many2one(comodel_name="res.users",string="Course's Responsible")
 
