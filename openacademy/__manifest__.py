@@ -6,9 +6,10 @@
     'category': 'eLearning',
     'description': "A module in wich you can learn a lot of things about openerp",
     'auto_install': False,
-    'demo': ['demo/session_demo_data.xml',
+    'demo': ['demo/res_partner_category_demo_data.xml',
              'demo/course_demo_data.xml',
-             'res_partner_category_demo_data.xml'],
+             'demo/session_demo_data.xml'
+             ],
     'data': ['views/course_views.xml',
              'views/session_views.xml',
              'views/menu.xml',
