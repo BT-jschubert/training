@@ -41,20 +41,16 @@
                                 <field name="start_date"/>
                                 <field name="end_date"/>
                                 <field name="duration"/>
+                                <field name="responsible"/>
                             </group>
                             <group col="2">
                                 <field name="number_of_seats"/>
                                 <field name="related_course"/>
                                 <field name="remain_seats" widget="progressbar"/>
+                                <field name="instructor"/>
                             </group>
 
                             <notebook colspan="4">
-                                <page string="Instructor">
-                                    <field name="instructor"/>
-                                </page>
-                                <page string="Responsible">
-                                    <field name="responsible"/>
-                                </page>
                                 <page string="Attendees">
                                     <field name="attendees"/>
                                 </page>
