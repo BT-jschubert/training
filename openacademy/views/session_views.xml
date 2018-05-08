@@ -10,7 +10,9 @@
                     <field name="name"/>
                     <field name="start_date"/>
                     <field name="duration"/>
+                    <field name="end_date"/>
                     <field name="num_seats"/>
+                    <field name="taken_seats_percent" widget="progressbar"/>
                     <field name="course_id"/>
                     <field name="instructor_id"/>
                     <field name="responsible_id"/>
@@ -30,7 +32,9 @@
                         <field name="name"/>
                         <field name="start_date"/>
                         <field name="duration"/>
+                        <field name="end_date"/>
                         <field name="num_seats"/>
+                        <field name="taken_seats_percent" widget="progressbar"/>
                         <field name="course_id"/>
                         <field name="instructor_id"/>
                         <field name="responsible_id"/>
