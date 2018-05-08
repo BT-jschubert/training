@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+        <!--TREE VIEW FOR MODEL COURSE-->
+        <record model="ir.ui.view" id="course_tree">
+            <field name="name">COURSE_TREE</field> <!--este nombre no se mostrará:lo coje del menu.xml-->
+            <field name="model">course</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <tree string="COURSES (TREE VIEW)">
+                    <field name="title"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!--FORM VIEW FOR MODEL COURSE-->
+        <record model="ir.ui.view" id="course_form">
+            <field name="name">COURSE_FORM</field> <!--este nombre no se mostrará-->
+            <field name="model">course</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <form>
+                    <group string="Information of the course">
+                        <field name="title"/>
+                    </group>
+
+                    <notebook>
+                        <page string="General">
+                            <group string="Description">
+                                <field name="description" nolabel="1"/>
+                            </group>
+                        </page>
+
+                        <page string="Sessions">
+                            <group string="Sessions for this course">
+                                <field name="sessions" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+
+        <!--SEARCH VIEW FOR MODEL COURSE-->
+        <record model="ir.ui.view" id="course_search">
+            <field name="name">COURSE_SEARCH</field> <!--este nombre no se mostrará-->
+            <field name="model">course</field>
+            <field name="priority" eval="3"/>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="title"/>
+                    <field name="description"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>
