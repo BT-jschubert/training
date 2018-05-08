@@ -1,0 +1,69 @@
+<odoo>
+    <data>
+        <!--TREE VIEW FOR MODEL SESSION-->
+        <record model="ir.ui.view" id="session_tree">
+            <field name="name">SESSION_TREE</field> <!--este nombre no se mostrará:lo coje del menu.xml-->
+            <field name="model">session</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <tree string="SESSIONS (TREE VIEW)">
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="duration"/>
+                    <field name="num_seats"/>
+                    <field name="course_id"/>
+                    <field name="instructor_id"/>
+                    <field name="responsible_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!--FORM VIEW FOR MODEL SESSION-->
+        <record model="ir.ui.view" id="session_form">
+            <field name="name">SESSION_FORM</field> <!--este nombre no se mostrará-->
+            <field name="model">session</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <form>
+                    <group string="Information of the session">
+                        <field name="name"/>
+                        <field name="start_date"/>
+                        <field name="duration"/>
+                        <field name="num_seats"/>
+                        <field name="course_id"/>
+                        <field name="instructor_id"/>
+                        <field name="responsible_id"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Attendees">
+                            <group string="Attendees for this session">
+                                <field name="attendees" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+
+        <!--SEARCH VIEW FOR MODEL SESSION-->
+        <record model="ir.ui.view" id="session_search">
+            <field name="name">SESSION_SEARCH</field> <!--este nombre no se mostrará-->
+            <field name="model">session</field>
+            <field name="priority" eval="3"/>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="duration"/>
+                    <field name="num_seats"/>
+                    <field name="course_id"/>
+                    <field name="instructor_id"/>
+                    <field name="responsible_id"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,15 @@
+<odoo>
+    <data noupdate="True">
+        <record id="philosophy" model="course">
+            <field name="title">Philosophy</field>
+            <field name="description">A subject not easy to understand</field>
+        </record>
+
+
+        <record id="spanish" model="course">
+            <field name="title">Spanish</field>
+            <field name="description">One of the most spoken languages in the world</field>
+        </record>
+    </data>
+</odoo>
+
