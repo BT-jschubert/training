@@ -15,6 +15,7 @@ class Session(models.Model):
     taken_seats_percent = fields.Float(string="Percentage of taken seats:", compute="_get_percent")
 
     course_id = fields.Many2one(comodel_name='course', ondelete="set null", string="Related course:", required="True")
+    course_description = fields.Text(related='course_id.description', string="Course description:")
     instructor_id = fields.Many2one(comodel_name='res.partner', ondelete="set null", string="Instructor:")
     responsible_id = fields.Many2one(comodel_name='res.users', ondelete="set null", string="Responsible:")
     attendees = fields.Many2many(comodel_name="res.partner", relation="session_attendees", column1="session_id", column2="attendee_id")

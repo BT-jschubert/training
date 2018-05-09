@@ -22,12 +22,17 @@
             </field>
         </record>
 
+
+
+        <!--Menu root-->
         <menuitem id="menu_root" name="openacademy"></menuitem>
+
+        <!--Courses menu-->
         <menuitem id="menu_courses" name="courses" parent="menu_root"></menuitem>
         <menuitem id="menu_c" name="menu" parent="menu_courses" action="action_courses"></menuitem>
 
+        <!--Sessions menu-->
         <menuitem id="menu_sessions" name="sessions" parent="menu_root"></menuitem>
         <menuitem id="menu_s" name="menu" parent="menu_sessions" action="action_sessions"></menuitem>
-
     </data>
 </odoo>

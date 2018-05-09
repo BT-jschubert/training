@@ -10,7 +10,8 @@
     'data': [
         "views/menu.xml",
         "views/course_views.xml",
-        "views/session_views.xml"
+        "views/session_views.xml",
+        "views/partner_views.xml"
     ],
     # data files containing optionally loaded demonstration data
     'demo': [

@@ -14,6 +14,7 @@
                     <field name="num_seats"/>
                     <field name="taken_seats_percent" widget="progressbar"/>
                     <field name="course_id"/>
+                    <field name="course_description"/>
                     <field name="instructor_id"/>
                     <field name="responsible_id"/>
                 </tree>
@@ -36,6 +37,7 @@
                         <field name="num_seats"/>
                         <field name="taken_seats_percent" widget="progressbar"/>
                         <field name="course_id"/>
+                        <field name="course_description"/>
                         <field name="instructor_id"/>
                         <field name="responsible_id"/>
                     </group>
@@ -64,6 +66,7 @@
                     <field name="duration"/>
                     <field name="num_seats"/>
                     <field name="course_id"/>
+                    <field name="course_description"/>
                     <field name="instructor_id"/>
                     <field name="responsible_id"/>
                 </search>
