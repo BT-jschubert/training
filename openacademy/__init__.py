@@ -1,3 +1,1 @@
-from . import models
-from . import views
-from . import demo
+from . import demo, models, views, wizard
