@@ -9,6 +9,7 @@
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">HELP_TEXT</p>
             </field>
+            <field name="context">{'search_default_my_courses': 1}</field>
         </record>
 
         <record id="action_sessions" model="ir.actions.act_window">
@@ -16,12 +17,11 @@
             <field name="res_model">session</field>
             <!--<field name="description">Subject about sciences</field>-->
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,kanban,calendar,gantt,graph</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">HELP_TEXT</p>
             </field>
         </record>
-
 
 
         <!--Menu root-->
@@ -34,5 +34,6 @@
         <!--Sessions menu-->
         <menuitem id="menu_sessions" name="sessions" parent="menu_root"></menuitem>
         <menuitem id="menu_s" name="menu" parent="menu_sessions" action="action_sessions"></menuitem>
+
     </data>
 </odoo>

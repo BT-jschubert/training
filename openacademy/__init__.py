@@ -1,1 +1,3 @@
-from . import demo, models, views, wizard
+from . import models
+from . import wizard
+from . import tests

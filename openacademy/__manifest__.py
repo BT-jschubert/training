@@ -8,10 +8,15 @@
                    """,
     # data files always loaded at installation
     'data': [
-        "views/menu.xml",
+        "data/schedulers.xml",
+        "wizard/wizard_view.xml",
+        "security/security.xml",
+        "security/ir.model.access.csv",
         "views/course_views.xml",
         "views/session_views.xml",
-        "views/partner_views.xml"
+        "views/partner_views.xml",
+        "views/menu.xml",
+        "reports/session_reports.xml"
     ],
     # data files containing optionally loaded demonstration data
     'demo': [

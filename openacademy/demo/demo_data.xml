@@ -10,6 +10,23 @@
             <field name="title">Spanish</field>
             <field name="description">One of the most spoken languages in the world</field>
         </record>
+
+        <record id="teacher" model="res.partner.category">
+            <field name="name">Teacher</field>
+            <field name="color" eval="1"/>
+        </record>
+
+        <record id="level1" model="res.partner.category">
+            <field name="name">Level 1</field>
+            <field name="color" eval="2"/>
+            <field name="parent_id" ref="teacher"/>
+        </record>
+
+        <record id="level2" model="res.partner.category">
+            <field name="name">Level 2</field>
+            <field name="color" eval="3"/>
+            <field name="parent_id" ref="teacher"/>
+        </record>
     </data>
 </odoo>
 

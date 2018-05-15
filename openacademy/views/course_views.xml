@@ -9,6 +9,7 @@
                 <tree string="COURSES (TREE VIEW)">
                     <field name="title"/>
                     <field name="description"/>
+                    <field name="responsible_id"/>
                 </tree>
             </field>
         </record>
@@ -23,6 +24,7 @@
                 <form>
                     <group string="Information of the course">
                         <field name="title"/>
+                        <field name="responsible_id"/>
                     </group>
 
                     <notebook>
@@ -52,6 +54,11 @@
                 <search>
                     <field name="title"/>
                     <field name="description"/>
+                    <field name="responsible_id"/>
+                    <filter name="my_courses" string="My courses" domain="[('responsible_id','=',uid)]"/>
+                    <group string="Group By" >
+                        <filter name="group_by_responsible"  string="Responsible" context="{'group_by': 'responsible_id'}"/>
+                    </group>
                 </search>
             </field>
         </record>
