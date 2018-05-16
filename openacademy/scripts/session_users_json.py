@@ -2,9 +2,10 @@ import json
 import random
 import urllib.request
 
+
 HOST = 'localhost'
 PORT = 8069
-DB = 'training'
+DB = 'Training'
 USER = 'admin'
 PASS = 'admin'
 
@@ -36,28 +37,18 @@ uid = call(url, "common", "login", DB, USER, PASS)
 print("Logged in as %s (uid: %d)" % (USER, uid))
 
 # Search for Demo User
-# args = [('name', '=', 'Demo User')]
-# demo_user_id = call(url, "object", "execute", DB, uid, PASS, 'res.partner', 'search', args)
-# print(demo_user_id)
+args = [('name', '=', 'Demo User')]
+demo_user_id = call(url, "object", "execute", DB, uid, PASS, 'res.partner','search', args)
+print("Demo user ID: %d" %(demo_user_id[0]))
 
 
 #Look for all sessions and display the number of seats
 args = ['name', 'num_seats']
-fields = call(url, "object", "execute", DB, uid, PASS, 'session', 'search_read', [], args)
-#
-# for f in fields:
-#     print('Session: %s -> %d seats' %(f['name'], f['num_seats']))
+sessions = call(url, "object", "execute", DB, uid, PASS, 'session', 'search_read', [], args)
+for s in sessions:
+    print('Session: %s -> %d seats' %(s['name'], s['num_seats']))
 
 
-# 2. Read the sessions
-# sessions = call(url, "object", "execute", DB, uid, PASS, 'openacademy.session',
-#                 'search_read', [], ['name', 'seats'])
-# for session in sessions:
-#     print("Session %s (%s seats)" % (session['name'], session['seats']))
-#
-# # 3.create a new session
-# course_id = call(url, "object", "execute", DB, uid, PASS, 'openacademy.course',
-#                  'search', [('name', 'ilike', 'Technical Training')])[0]
-#
-# session_id = call(url, "object", "execute", DB, uid, PASS, 'openacademy.session',
-#                   'create', {'name': 'My session', 'course_id': course_id, })
+#Create new session for the first course in the list
+course_id = call(url, "object", "execute", DB, uid, PASS, 'course', 'search', [])[0]
+call(url, "object", "execute", DB, uid, PASS, 'session', 'create', {'name': 'New session jsonrpc', 'course_id': course_id})

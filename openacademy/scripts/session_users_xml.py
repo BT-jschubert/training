@@ -23,10 +23,10 @@ print("Logged in as %s (uid:%d)" % (USER, uid))
 sock = xmlrpc.client.ServerProxy(ROOT + 'object')
 args = ['name', 'num_seats']
 # session_ids = sock.execute(DB, uid, PASS, 'session', 'search', [])
-fields = sock.execute(DB, uid, PASS, 'session', 'search_read', [], args)
+sessions = sock.execute(DB, uid, PASS, 'session', 'search_read', [], args)
 
-for f in fields:
-    print('Session: %s -> %d seats' %(f['name'], f['num_seats']))
+for s in sessions:
+    print('Session: %s -> %d seats' %(s['name'], s['num_seats']))
 
 
 #Create new session for the first course in the list

@@ -4,7 +4,7 @@ class Wizard(models.TransientModel):
     _name = 'wizard'
 
 
-    @api.model
+    # @api.model #En principio no hace falta por ser una funcion interna que no usa ORM
     def _get_default_session(self):
         return self.env['session'].browse(self._context.get('active_id'))
 

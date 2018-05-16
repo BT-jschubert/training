@@ -11,8 +11,12 @@ class Session(models.Model):
     #General methods
     #####################
     def domain_def(self):
-        # The ref is the id in the xml demo data. It won't work if record is created "by hand" in the web
-        return ['|', ('instructor', '=', True), ('category_id', 'child_of', self.env.ref("openacademy.teacher").id)]
+        #This if avoids a problem in the module installation, since the files .py are processed before than .xml,
+        #and the constaint points to a element inside demo_data.xml
+        if(self.env['ir.model.data'].search(['&',('module', '=', 'openacademy'), ('name','=','teacher'),('model','=','res.partner.category')])):
+            # The ref is the id in the xml demo data. It won't work if
+            # record is created "by hand" in the web
+            return ['|', ('instructor', '=', True), ('category_id', 'child_of', self.env.ref("openacademy.teacher").id)]
 
 
 

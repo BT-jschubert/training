@@ -1,1 +1,1 @@
-from . import my_test
+from . import test_my_test
