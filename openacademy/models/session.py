@@ -11,8 +11,8 @@ class Session(models.Model):
     #General methods
     #####################
     def domain_def(self):
-        #This if avoids a problem in the module installation, since the files .py are processed before than .xml,
-        #and the constaint points to a element inside demo_data.xml
+        #This 'if' avoids a problem in the module installation, since the files .py are processed before than .xml ones,
+        #and the constaint defined points to an element inside 'demo_data.xml'
         if(self.env['ir.model.data'].search(['&',('module', '=', 'openacademy'), ('name','=','teacher'),('model','=','res.partner.category')])):
             # The ref is the id in the xml demo data. It won't work if
             # record is created "by hand" in the web
@@ -53,7 +53,7 @@ class Session(models.Model):
             if not (r.num_seats):
                 continue
             num_attendees = len(r.attendees)
-            r.taken_seats_percent = num_attendees / r.num_seats * 100
+            r.taken_seats_percent = num_attendees / r.num_seats * 100.0
 
     @api.depends('start_date', 'duration')
     def _get_end_date(self):
@@ -77,7 +77,7 @@ class Session(models.Model):
     #####################
     def _set_end_date(self):
         for r in self:
-            if not (r.end_date):
+            if not r.end_date or not r.start_date:
                 continue
             s_date = datetime.strptime(r.start_date, DATE_FORMAT)
             e_date = datetime.strptime(r.end_date, DATE_FORMAT)
@@ -131,21 +131,24 @@ class Session(models.Model):
 
     @api.multi
     def confirm_action(self):
-        self.state='confirmed'
+        for r in self:
+            r.state ='confirmed'
 
     @api.multi
     def reedit_action(self):
-        self.state = 'draft'
+        for r in self:
+            r.state = 'draft'
 
     @api.multi
     def finish_action(self):
-        self.state = 'done'
+        for r in self:
+            r.state = 'done'
 
     #########################
     #Methods for schedulers
     #########################
     @api.model
     def cron_confirmed2done(self):
-        records = self.env['session'].search(['&', ('end_date', '<', date.today()), ('state', '=', 'confirmed')])
+        records = self.search(['&', ('end_date', '<', date.today()), ('state', '=', 'confirmed')])
         for r in records:
-           r.finish_action()
+            r.state = 'done'

@@ -30,5 +30,5 @@ for s in sessions:
 
 
 #Create new session for the first course in the list
-course_id =  sock.execute(DB, uid, PASS, 'course', 'search', [])[0]
+course_id =  sock.execute(DB, uid, PASS, 'course', 'search', [('title', '=', 'Maths')])[0]
 sock.execute(DB, uid, PASS, 'session', 'create', {'name': 'New session xmlrpc', 'course_id': course_id})

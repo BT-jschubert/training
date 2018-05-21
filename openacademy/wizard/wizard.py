@@ -5,8 +5,8 @@ class Wizard(models.TransientModel):
 
 
     # @api.model #En principio no hace falta por ser una funcion interna que no usa ORM
-    def _get_default_session(self):
-        return self.env['session'].browse(self._context.get('active_id'))
+    #def _get_default_session(self):
+    #    return self.env['session'].browse(self._context.get('active_id'))
 
     #sessions = fields.Many2one(comodel_name='session', ondelete="set null", string="Session:",
     #                           default=_get_default_session)
@@ -15,15 +15,18 @@ class Wizard(models.TransientModel):
 
     attendees = fields.Many2many(comodel_name="res.partner", relation="wizard_attendees", column1="session_id",
                                  column2="attendee_id", string="Attendees")
-                                # Note that is a different "many2many" than the one in sessions.attendees
+                                # Note that is a different "many2many" than the one in sessions.attendees.
+                                # Here is a many2many between wizard and partners
+                                # in sessions.attendees is a many2many between session and partners
 
 
 
     @api.multi
     def add_attendees(self):
-        for ses in self.sessions:
-            ses.attendees |= self.attendees
+        # Using the new API
+        # for ses in self.sessions:
+        #     ses.attendees |= self.attendees
 
-        # Old API (v10), but I didn't get it work
-        # for record in self.attendees:
-        #     self.sessions.attendees.write({(4, record.id)})
+        # Using the old API (v10)
+        for att in self.attendees:
+            self.sessions.write({'attendees': [(4, att.id)]})

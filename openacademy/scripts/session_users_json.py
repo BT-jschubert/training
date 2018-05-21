@@ -50,5 +50,5 @@ for s in sessions:
 
 
 #Create new session for the first course in the list
-course_id = call(url, "object", "execute", DB, uid, PASS, 'course', 'search', [])[0]
+course_id = call(url, "object", "execute", DB, uid, PASS, 'course', 'search', [('title', '=', 'Maths')])[0]
 call(url, "object", "execute", DB, uid, PASS, 'session', 'create', {'name': 'New session jsonrpc', 'course_id': course_id})

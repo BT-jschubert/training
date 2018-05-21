@@ -29,9 +29,8 @@
                 <form>
                     <header>
                         <button states="draft" class="oe_highlight" string="Confirm" name="confirm_action" type="object"/>
-                        <button states="confirmed" string="Re-edit" name="reedit_action" type="object"/>
+                        <button states="confirmed,done" string="Re-edit" name="reedit_action" type="object"/>
                         <button states="confirmed" class="oe_highlight" string="Finish" name="finish_action" type="object"/>
-                        <button states="done" string="Re-edit" name="reedit_action" type="object"/>
                         <field name="state" widget="statusbar"/>
                     </header>
                     <sheet>

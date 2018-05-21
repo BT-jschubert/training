@@ -1,7 +1,7 @@
 <odoo>
     <data noupdate="1">
         <record id="confirmed2done_cron" model="ir.cron">
-            <field name="name">CONFIRMED2DONE</field>
+            <field name="name">Sessions past: Confirmed to Done </field>
             <field name="active" eval="True"/>
             <field name="interval_number">1</field>
             <field name="interval_type">days</field>

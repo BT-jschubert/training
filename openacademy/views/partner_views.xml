@@ -1,7 +1,7 @@
 <odoo>
     <data>
-        <record model="ir.ui.view"  id="partner_inh">
-            <field name="name">PARTNER_INHERITED</field>
+        <record model="ir.ui.view"  id="view_partner_form">
+            <field name="name">res.partner.form</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="priority" eval="1"/>
