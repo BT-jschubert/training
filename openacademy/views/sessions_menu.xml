@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="action_sessions" model="ir.actions.act_window">
+        <field name="name">SESSIONS</field>
+        <field name="res_model">sessions</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,kanban,calendar,gantt,graph,pivot</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">HELP_TEXT</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_root" name="openacademy"/>
+    <menuitem id="sessions_menu_config" name="sessions" parent="menu_root"/>
+    <menuitem id="menu_sessions" parent="sessions_menu_config" name="manage sessions" action="action_sessions"/>
+
+</odoo>

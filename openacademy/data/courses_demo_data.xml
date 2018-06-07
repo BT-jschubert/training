@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="True">
+        <record model="course" id="course_spanish">
+            <field name="title">Spanish</field>
+            <field name="description">This is the subject to learn Spanish language</field>
+        </record>
+        <record model="course" id="course_english">
+            <field name="title">English</field>
+            <field name="description">This is the subject to learn English language</field>
+        </record>
+    </data>
+</odoo>

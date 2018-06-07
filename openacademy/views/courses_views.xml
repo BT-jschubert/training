@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="courses_tree_view" model="ir.ui.view">
+        <field name="name">TREE VIEW</field>
+        <field name="model">course</field>
+        <field name="arch" type="xml">
+            <tree string="tree_view">
+                <field name="title"/>
+                <field name="responsible"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="courses_search_view" model="ir.ui.view">
+        <field name="name">SEARCH VIEW</field>
+        <field name="model">course</field>
+        <field name="arch" type="xml">
+           <search>
+               <field name="title" />
+               <field name="description" />
+               <field name="responsible"/>
+               <filter string="My Courses" name="my_courses" domain="[('responsible','=',uid)]"/>
+           </search>
+        </field>
+    </record>
+
+    <record id="courses_form_view" model="ir.ui.view">
+        <field name="name">FORM VIEW</field>
+        <field name="model">course</field>
+        <field name="arch" type="xml">
+            <form string="form_view">
+                <group>
+                    <field name="title" nolabel="1"/>
+                    <field name="responsible"/>
+                </group>
+                <group>
+                   <notebook>
+                       <page string="DESCRIPTIONS_TAB">
+                           <field name="description" nolabel="1" />
+                       </page>
+                   </notebook>
+                </group>
+                <group>
+                   <notebook>
+                       <page string="SESSIONS">
+                           <field name="sessions" nolabel="1" />
+                       </page>
+                   </notebook>
+                </group>
+            </form>
+        </field>
+    </record>
+
+</odoo>

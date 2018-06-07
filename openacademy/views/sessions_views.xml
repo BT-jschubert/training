@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="sessions_tree_view" model="ir.ui.view">
+        <field name="name">TREE VIEW</field>
+        <field name="model">sessions</field>
+        <field name="arch" type="xml">
+            <tree string="Tree_view" decoration-success="duration&lt;5" decoration-danger="duration&gt;15" editable="bottom">
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="duration"/>
+                <field name="end_date"/>
+                <field name="number_of_seats"/>
+                <field name="taken_seats_percent" widget="progressbar" />
+                <field name="related_course"/>
+                <field name="instructor"/>
+                <field name="course_description"/>
+                <button name="open_record" string="OpenRecord" type="object"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sessions_search_view" model="ir.ui.view">
+        <field name="name">SEARCH VIEW</field>
+        <field name="model">sessions</field>
+        <field name="arch" type="xml">
+           <search>
+               <field name="name" />
+               <field name="related_course" />
+               <field name="instructor" />
+           </search>
+        </field>
+    </record>
+
+    <record id="session_form_view" model="ir.ui.view">
+        <field name="name">FORM VIEW</field>
+        <field name="model">sessions</field>
+        <field name="arch" type="xml">
+            <form string="form_view">
+                <header>
+                    <button name="change_to_draft" states="confirmed,done" string="BACK TO DRAFT" type="object"/>
+                    <!--<button name="change_to_draft" states="confirmed" string="BACK TO DRAFT" type="object"/>-->
+                    <button name="change_to_confirmed" states="draft" string="CONFIRM" type="object"/>
+                    <button name="change_to_done" states="confirmed" string="DONE" type="object"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <group>
+                    <field name="name" nolabel="1"/>
+                    <field name="start_date"/>
+                    <field name="duration"/>
+                    <field name="end_date"/>
+                    <field name="related_course"/>
+                    <field name="instructor"/>
+                    <field name="number_of_seats"/>
+                    <field name="taken_seats_percent" widget="progressbar"/>
+                    <field name="course_description"/>
+                    <field name="color"/>
+                </group>
+                <group>
+                   <notebook>
+                       <page string="DESCRIPTIONS_TAB">
+                           <field name="attendees"/>
+                       </page>
+                   </notebook>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="session_kanban_view">
+        <field name="name">Kanban Session</field>
+        <field name="model">sessions</field>
+        <field name="arch" type="xml">
+            <kanban string="Sessions Kanban View" default_group_by='related_course'>
+                <field name="color"/>
+                <field name="instructor" />
+                <field name="start_date" />
+                <field name="duration" />
+                <field name="taken_seats_percent" />
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_color_{{kanban_getcolor(record.color.raw_value)}}
+        oe_kanban_global_click_edit oe_semantic_html_override
+        oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
+
+
+                            <div class="oe_dropdown_kanban">
+                                <div class="oe_dropdown_toggle">
+                                    <i class="fa fa-bars fa-lg"/>
+                                    <ul class="oe_dropdown_menu">
+                                        <li>
+                                            <a type="delete">Delete</a>
+                                        </li>
+                                        <li>
+                                            <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="oe_clear"/>
+                            </div>
+                            <div t-attf-class="oe_kanban_content">
+                                <group>
+                                    <b><field name="name"/></b>
+                                    <hr/>
+                                    <b>Instructor:</b> <field name="instructor" /><br/>
+                                    <b>Start Date:</b> <field name="start_date" /><br/>
+                                    <b>Duration:</b> <field name="duration"/><br/><br/>
+                                    <b>Seats reserved:</b> <field name="taken_seats_percent" widget="progressbar"/>
+                                </group>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="session_calendar_view">
+        <field name="name">Calendar Session</field>
+        <field name="model">sessions</field>
+        <field name="arch" type="xml">
+            <calendar string="Calendar"
+                color="color"
+                date_start="start_date"
+                date_stop="end_date">
+                <field name="name"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="session_gantt_view">
+        <field name="name">Gantt Session</field>
+        <field name="model">sessions</field>
+        <field name="arch" type="xml">
+            <gantt string="Gantt"
+                 date_start="start_date"
+                 date_delay="hours_duration"
+                 default_group_by="instructor"/>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="session_graph_view">
+        <field name="name">Graph Session</field>
+        <field name="model">sessions</field>
+        <field name="arch" type="xml">
+            <graph string="Graph" type="bar">
+                <field name="related_course"/>
+                <field name="number_of_attendees" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="session_pivot_view">
+        <field name="name">Pivot Session</field>
+        <field name="model">sessions</field>
+        <field name="arch" type="xml">
+            <graph string="Pivot">
+                <field name="related_course" type="row" />
+                <field name="number_of_attendees" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+    <data noupdate="1">
+        <record id="CRON_IDENTIFIER" model="ir.cron">
+            <field name="name">Session Done Cron</field>
+            <field name="interval_number">1</field>
+            <field name="active" eval="True"/>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model_id" ref="openacademy.model_sessions"/>
+            <field name="state">code</field>
+            <field name="code">model.cron_done()</field>
+        </record>
+    </data>
+
+
+</odoo>

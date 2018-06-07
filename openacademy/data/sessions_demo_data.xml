@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record model="sessions" id="session_1">
+            <field name="name">Spanish Session number X</field>
+            <field name="duration">10</field>
+            <field name="number_of_seats">10</field>
+            <field name="related_course" ref="openacademy.course_spanish" />
+            <field name="instructor" ref="base.res_partner_address_35" />
+        </record>
+        <record model="sessions" id="session_2">
+            <field name="name">English Session number Y</field>
+            <field name="duration">6</field>
+            <field name="number_of_seats">10</field>
+            <field name="related_course" ref="course_english" />
+            <field name="instructor" ref="base.res_partner_address_26" />
+        </record>
+    </data>
+</odoo>

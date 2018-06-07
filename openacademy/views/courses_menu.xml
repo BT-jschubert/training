@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="action_courses" model="ir.actions.act_window">
+        <field name="name">SCIENCES</field>
+        <field name="res_model">course</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">HELP_TEXT</p>
+        </field>
+        <field name="search_view_id" ref="courses_search_view" />
+        <field name="context">
+            {'search_default_my_courses':1}
+        </field>
+    </record>
+
+    <menuitem id="menu_root" name="openacademy"/>
+    <menuitem id="menu_config" name="courses" parent="menu_root"/>
+    <menuitem id="menu" parent="menu_config" name="manage courses" action="action_courses"/>
+
+</odoo>
