@@ -6,8 +6,7 @@ from bokeh.models import ColumnDataSource, CDSView, GroupFilter
 import csv
 
 output_file("skillsmap.html")
-input_file = 'survey.user_input.csv'
-output_csv = 'skillsmap.csv'
+input_file = 'survey.user_input_demo.csv'
 
 my_data = open(input_file, 'r')
 csvreader = csv.reader(my_data, delimiter=',', quotechar='"')
