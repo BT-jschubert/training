@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.actions.act_window" id="courses_icon_view">
+        <field name="name">course</field>
+        <field name="view_type">form</field>
+        <field name="res_model">openacademy.course</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p>
+                No courses in database
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="course_form_view">
+        <field name="name">Courses form view</field>
+        <field name="model">openacademy.course</field>
+        <field name="arch" type="xml">
+            <form string="Courses">
+                <group colspan="4">
+                    <group colspan="2" col="2">
+                        <field name="title"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Description">
+                            <field name="description" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="course_search_view">
+        <field name="name">Courses search view</field>
+        <field name="model">openacademy.course</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="title"/>
+                <field name="description"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="course_tree_view">
+        <field name="name">Courses tree view</field>
+        <field name="model">openacademy.course</field>
+        <field name="arch" type="xml">
+            <tree string="Courses">
+                <field name="title"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="courses_main_view_icon" name="Courses" sequence="1"
+              parent="openacademy_main_view_icon" action="courses_icon_view"/>
+
+</odoo>

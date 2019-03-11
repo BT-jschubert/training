@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="openacademy_main_view_icon" name="Open Academy" sequence="1"
+              parent=""/>
+
+</odoo>

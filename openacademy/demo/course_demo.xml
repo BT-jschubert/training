@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- TAGS FOR RETRIEVING THE DEMO ACCOUNTS -->
+
+        <record id="demo_odoo_course" model="openacademy.course">
+            <field name="title">Odoo course</field>
+            <field name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis elit sit
+                amet risus bibendum euismod. Suspendisse id nibh vel ipsum sollicitudin auctor a porta neque. Nulla
+                tempus, ex sed fermentum elementum, sem libero vehicula orci, non eleifend sem ipsum at nulla. Phasellus
+                lorem lorem, aliquam eu nunc scelerisque, volutpat tempor dolor. Vestibulum ante ipsum primis in
+                faucibus orci luctus et ultrices posuere cubilia Curae; Donec viverra accumsan felis, eget euismod
+                mauris congue a. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+                Nam tristique metus vel enim scelerisque, a tristique enim commodo. Integer convallis mi eu nibh
+                dignissim efficitur. Integer feugiat tempor purus a scelerisque. Aenean tempor lacus mi, sed semper nunc
+                tincidunt eu.
+            </field>
+        </record>
+
+        <record id="demo_braintec_course" model="openacademy.course">
+            <field name="title">Brain-Tec course</field>
+            <field name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis elit sit
+                amet risus bibendum euismod. Suspendisse id nibh vel ipsum sollicitudin auctor a porta neque. Nulla
+                tempus, ex sed fermentum elementum, sem libero vehicula orci, non eleifend sem ipsum at nulla. Phasellus
+                lorem lorem, aliquam eu nunc scelerisque, volutpat tempor dolor. Vestibulum ante ipsum primis in
+                faucibus orci luctus et ultrices posuere cubilia Curae; Donec viverra accumsan felis, eget euismod
+                mauris congue a. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+                Nam tristique metus vel enim scelerisque, a tristique enim commodo. Integer convallis mi eu nibh
+                dignissim efficitur. Integer feugiat tempor purus a scelerisque. Aenean tempor lacus mi, sed semper nunc
+                tincidunt eu.
+            </field>
+        </record>
+
+        <record id="demo_french_course" model="openacademy.course">
+            <field name="title">French course</field>
+            <field name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis elit sit
+                amet risus bibendum euismod. Suspendisse id nibh vel ipsum sollicitudin auctor a porta neque. Nulla
+                tempus, ex sed fermentum elementum, sem libero vehicula orci, non eleifend sem ipsum at nulla. Phasellus
+                lorem lorem, aliquam eu nunc scelerisque, volutpat tempor dolor. Vestibulum ante ipsum primis in
+                faucibus orci luctus et ultrices posuere cubilia Curae; Donec viverra accumsan felis, eget euismod
+                mauris congue a. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+                Nam tristique metus vel enim scelerisque, a tristique enim commodo. Integer convallis mi eu nibh
+                dignissim efficitur. Integer feugiat tempor purus a scelerisque. Aenean tempor lacus mi, sed semper nunc
+                tincidunt eu.
+            </field>
+        </record>
+
+        <record id="demo_security_course" model="openacademy.course">
+            <field name="title">Security course</field>
+            <field name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis elit sit
+                amet risus bibendum euismod. Suspendisse id nibh vel ipsum sollicitudin auctor a porta neque. Nulla
+                tempus, ex sed fermentum elementum, sem libero vehicula orci, non eleifend sem ipsum at nulla. Phasellus
+                lorem lorem, aliquam eu nunc scelerisque, volutpat tempor dolor. Vestibulum ante ipsum primis in
+                faucibus orci luctus et ultrices posuere cubilia Curae; Donec viverra accumsan felis, eget euismod
+                mauris congue a. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+                Nam tristique metus vel enim scelerisque, a tristique enim commodo. Integer convallis mi eu nibh
+                dignissim efficitur. Integer feugiat tempor purus a scelerisque. Aenean tempor lacus mi, sed semper nunc
+                tincidunt eu.
+            </field>
+        </record>
+    </data>
+</odoo>
