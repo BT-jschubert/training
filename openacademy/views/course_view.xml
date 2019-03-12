@@ -20,10 +20,14 @@
                 <group colspan="4">
                     <group colspan="2" col="2">
                         <field name="title"/>
+                        <field name="responsible_id"/>
                     </group>
                     <notebook colspan="4">
                         <page string="Description">
                             <field name="description" nolabel="1"/>
+                        </page>
+                         <page string="Sessions">
+                            <field name="session_ids" nolabel="1"/>
                         </page>
                     </notebook>
                 </group>
@@ -38,6 +42,7 @@
             <search>
                 <field name="title"/>
                 <field name="description"/>
+                <field name="responsible_id"/>
             </search>
         </field>
     </record>
@@ -49,6 +54,7 @@
             <tree string="Courses">
                 <field name="title"/>
                 <field name="description"/>
+                <field name="responsible_id"/>
             </tree>
         </field>
     </record>
