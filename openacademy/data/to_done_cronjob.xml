@@ -1,0 +1,15 @@
+<odoo>
+    <data noupdate="1">
+        <record id="to_done_cronjob" model="ir.cron">
+            <field name="name">To Done CRONJOB</field>
+            <field name="interval_number">60</field>
+            <field name="active" eval="True"/>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model_id" ref="model_session"/>
+            <field name="state">code</field>
+            <field name="code">model.to_confirm()</field>
+        </record>
+    </data>
+</odoo>

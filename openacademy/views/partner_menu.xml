@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="action_partner" model="ir.actions.act_window">
+        <field name="name">Partners</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">HELP_TEXT</p>
+        </field>
+    </record>
+
+    <menuitem id="partner_menu" parent="menu_config" name="Partner" action="action_partner"/>
+
+</odoo>

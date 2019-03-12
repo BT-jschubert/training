@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="tree_view">
+            <field name="name">Tree View</field>
+            <field name="model">course</field>
+            <field name="arch" type="xml">
+                <tree string="Subjects">
+                    <field name="title"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="form_view">
+            <field name="name">Form View</field>
+            <field name="model">course</field>
+            <field name="arch" type="xml">
+                <form string="Courses">
+                    <group colspan="4">
+                        <group colspan="2">
+                            <field name="title"/>
+                            <field name="description"/>
+                            <field name="responsible"/>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="List of Sessions">
+                                <field name="sessions"/>
+                            </page>
+                        </notebook>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="search_view">
+            <field name="name">Search View</field>
+            <field name="model">course</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="title"/>
+                    <field name="description"/>
+                    <filter name="responsible_filter" string="Responsible"
+                            domain="[('responsible', '=', uid)]"/>
+                    <group string="Group By">
+                        <filter name="group_by_responsible" string="Responsible"
+                                context="{'group_by': 'responsible'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

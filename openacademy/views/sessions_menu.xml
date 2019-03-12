@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="action_session" model="ir.actions.act_window">
+        <field name="name">Sessions</field>
+        <field name="res_model">session</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,pivot,graph,gantt,calendar,kanban</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">HELP_TEXT</p>
+        </field>
+    </record>
+
+    <menuitem id="session_menu" parent="menu_config" name="Session" action="action_session"/>
+</odoo>

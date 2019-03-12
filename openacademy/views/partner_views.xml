@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="parner_tree_view">
+            <field name="name">Partners</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <field name="email" position="after">
+                    <field name="instructor"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="partner_form_view">
+            <field name="name">Partners</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="email" position="after">
+                    <field name="instructor"/>
+                </field>
+                <xpath expr="//page[@name='sales_purchases']" position="after">
+                    <page name="sessions" string="Sessions">
+                        <field name="sessions"/>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>
