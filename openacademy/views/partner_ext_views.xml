@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="res_partner_ext_view">
+            <field name="name"/>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <field name="mobile" position="after">
+                    <field name="is_instructor"/>
+                    <field name="session_ids"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

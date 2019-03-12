@@ -1,0 +1,8 @@
+<odoo>
+    <data>
+        <menuitem id="menu_dash" name="Openacademy" sequence="1"/>
+        <menuitem id="menu_main" name="Openacademy" sequence="1"  parent="menu_dash"/>
+        <menuitem id="menu_courses" name="Course" sequence="2" action="act_menu_courses" parent="menu_main"/>
+        <menuitem id="menu_sessions" name="Session" sequence="3" action="act_menu_sessions" parent="menu_main"/>
+    </data>
+</odoo>

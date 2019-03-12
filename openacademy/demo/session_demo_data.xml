@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <record model="openacademy.session" id="session_demo1">
+            <field name="name">Session 1</field>
+            <field name="duration">5.1</field>
+            <field name="number_of_seats">30</field>
+            <field name="related_course" ref="openacademy.course_demo1"/>
+        </record>
+
+        <record model="openacademy.session" id="session_demo2">
+            <field name="name">Session 2</field>
+            <field name="duration">5.1</field>
+            <field name="number_of_seats">30</field>
+            <field name="related_course" ref="openacademy.course_demo1"/>
+        </record>
+
+        <record model="openacademy.session" id="session_demo3">
+            <field name="name">Session 3</field>
+            <field name="duration">5.1</field>
+            <field name="number_of_seats">30</field>
+            <field name="related_course" ref="openacademy.course_demo1"/>
+        </record>
+
+        <record model="openacademy.session" id="session_demo4">
+            <field name="name">Session 4</field>
+            <field name="duration">5.1</field>
+            <field name="number_of_seats">30</field>
+            <field name="related_course" ref="openacademy.course_demo1"/>
+        </record>
+    </data>
+</odoo>
