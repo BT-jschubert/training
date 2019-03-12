@@ -13,9 +13,12 @@
         'base'
     ],
     'data': [
+        'data/base_data.xml',
         'views/openacademy_main_view.xml',
         'views/course_view.xml',
         'views/session_view.xml',
+        'views/course_ext_view.xml',
+
     ],
     'demo': [
         'demo/course_demo.xml'
