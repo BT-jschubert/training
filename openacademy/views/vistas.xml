@@ -1,0 +1,62 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view1">
+            <field name="name"></field>
+            <field name="model">openacademy.curso</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <tree string="openacademy.curso">
+                    <field name="nombre"/>
+                    <field name="descripcion"/>
+                    <field name="responsible_id"/>
+                    <field name="session_ids"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view2">
+            <field name="name"></field>
+            <field name="model">openacademy.curso</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <form string="Detalles del curso">
+                    <group colspan="4">
+                        <group>
+                         <field colspan="2" name="nombre"></field>
+                         <field colspan="2" name="responsible_id"></field>
+                         <field name="has_full_sessions"/>
+                        </group>
+
+                        <notebook colspan="4">
+                                <page string="Descripcion">
+                                    <field name="descripcion" nolabel="1"/>
+                                </page>
+                            <page string="Sesiones relacionadas">
+                                    <field name="session_ids" nolabel="1"/>
+                            </page>
+
+                        </notebook>
+                    </group>
+
+                </form>
+            </field>
+        </record>
+            <record model="ir.ui.view" id="view3">
+            <field name="name"></field>
+            <field name="model">openacademy.curso</field>
+            <field name="priority" eval="3"/>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="nombre"/>
+                    <field name="descripcion"/>
+                    <field name="responsible_id"/>
+                    <filter name="mycourses" string="My courses"
+                            domain="[('responsible_id','=',uid)]"/>
+                    <group string="Group By">
+                        <filter name="group_by_resposible" string="responsible"
+                                context="{'group_by':'responsible_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

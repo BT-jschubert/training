@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <record model="openacademy.curso" id="curso1">
+            <field name="nombre">Curso 101</field>
+            <field name="descripcion">Curso iniciacion en odoo</field>
+        </record>
+        <record model="openacademy.curso" id="curso2">
+            <field name="nombre">Curso Medio</field>
+            <field name="descripcion">Curso herramientas de odoo</field>
+        </record>
+          <record model="openacademy.curso" id="curso3">
+            <field name="nombre">Curso Avanzado</field>
+            <field name="descripcion">Curso avanzado en odoo</field>
+        </record>
+          <record model="openacademy.curso" id="curso4">
+            <field name="nombre">Curso Master</field>
+            <field name="descripcion">Curso proficiency en odoo</field>
+        </record>
+    </data>
+</odoo>

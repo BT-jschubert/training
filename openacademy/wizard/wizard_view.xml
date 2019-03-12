@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="WizardFormView">
+            <field name="name"></field>
+            <field name="model">openacademy.wizard</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <form string="Detalles de la sesion">
+                    <group colspan="4">
+                        <group>
+                            <field name="session_relations"/>
+                            <field name="partner_relation"/>
+                            <!--<button type="object" name="add2session" string="add"/>-->
+                        </group>
+                    </group>
+                    <footer>
+                        <button type="object" name="add2sessions" string="Add"/>
+                        or
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

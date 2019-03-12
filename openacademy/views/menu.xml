@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="display_list">
+            <field name="name">Mostrar todos</field>
+            <field name="res_model">openacademy.curso</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Generic help text</p>
+            </field>
+            <field name="context">
+                {'search_default_mycourses': 1,
+                'search_default_group_by_resposible':1}
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="display_list_of_sessions">
+            <field name="name">Mostrar sesiones</field>
+            <field name="res_model">openacademy.session</field>
+            <field name="view_mode">tree,form,kanban,calendar,gantt,graph</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Generic help text</p>
+            </field>
+        </record>
+        <act_window id="wizard"
+                    name="wizard"
+                    src_model="openacademy.session"
+                    res_model="openacademy.wizard"
+                    view_mode="form"
+                    target="new"
+                    key2="client_action_multi"/>
+
+        <menuitem id="menuDashboard"
+                  name="Open Academy"
+
+        />
+
+        <menuitem id="mainMenu"
+                  name="Open Academy"
+                  parent="menuDashboard"
+
+        />
+
+        <menuitem id="menuCourses" parent="mainMenu"
+                  name="Cursos" sequence="1"
+                  action="display_list"
+        />
+
+        <menuitem id="menuSessions" parent="mainMenu"
+                  name="Sesiones" sequence="1"
+                  action="display_list_of_sessions"
+        />
+
+    </data>
+</odoo>

@@ -1,0 +1,143 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="viewSession1">
+            <field name="name"></field>
+            <field name="model">openacademy.session</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <tree string="openacademy.session" decoration-info="duration&lt;5" decoration-danger="duration&gt;15" editable="bottom">
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="number_of_seats"/>
+                    <field name="instructor_id"/>
+                    <field name="end_date"/>
+                    <field name="related_Course_id"/>
+                    <field name="percentage_of_seats_taken"/>
+                    <field name="duration"/>
+                    <field name="course_description"/>
+                    <button type="object" name="launch_formview" string="Abrir form"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="viewSession2">
+            <field name="name"></field>
+            <field name="model">openacademy.session</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <form string="Detalles de la sesion">
+                    <header>
+                            <field name="state" widget="statusbar"/>
+                    </header>
+                    <group colspan="4">
+                        <group>
+                            <field name="name"/>
+                            <button type="object" name="advance_status" string="continue"/>
+                            <field name="start_date"/>
+                            <field name="number_of_seats"/>
+                            <field name="instructor_id"/>
+                            <field name="start_date"/>
+                            <field name="related_Course_id"/>
+                            <field widget='progressbar' name="percentage_of_seats_taken"/>
+                            <field name="start_date"/>
+                            <field name="duration"/>
+                            <field name="end_date"/>
+
+                        </group>
+                        <notebook colspan="4">
+                            <page string="People">
+                                    <field name="attendees_ids" nolabel="1"/>
+
+                            </page>
+                        </notebook>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="viewSession3">
+            <field name="name"></field>
+            <field name="model">openacademy.session</field>
+            <field name="priority" eval="3"/>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="viewSession4">
+            <field name="name"></field>
+            <field name="model">openacademy.session</field>
+            <field name="priority" eval="4"/>
+            <field name="arch" type="xml">
+                <kanban default_group_by="related_Course_id">
+                    <field name="color"/>
+                    <field name="name"/>
+                        <templates>
+                            <t t-name="kanban-box">
+                                <div t-attf-class="oe_kanban_color_{{kanban_getcolor(record.color.raw_value)}}
+                                                   oe_kanban_global_click_edit oe_semantic_html_override
+                                                   oe_kanban_card {{record.group==1 ? 'oe_kaban_card_fancy' : ''}}">
+                                    <div class="oe_dropdown_kanban">
+                                        <div class="oe_dropdown_toggle">
+                                            <i class="fa fa-bars fa-lg"/>
+                                            <ul class="oe_dropdown_menu">
+                                                <li>
+                                                    <a type="delete">Delete</a>
+                                                </li>
+                                                <li>
+                                                    <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="oe_clear"></div>
+                                    </div>
+                                    <div t-attf-class="oe_kanban_content">
+                                        <field name="name"/>
+                                    </div>
+                                </div>
+                            </t>
+                        </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="viewSession5">
+            <field name="name"></field>
+            <field name="model">openacademy.session</field>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <calendar string="Sessions_Calendar" color="color"
+                            date_start="start_date"
+                            date_stop="end_date">
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="viewSession6">
+            <field name="name"></field>
+            <field name="model">openacademy.session</field>
+            <field name="priority" eval="13"/>
+            <field name="arch" type="xml">
+                <gantt      string='Horarios_instructores'
+                            date_start="start_date"
+                            date_delay="duration"
+                            default_group_by="instructor_id">
+                </gantt>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="viewSession7">
+            <field name="name"></field>
+            <field name="model">openacademy.session</field>
+            <field name="priority" eval="14"/>
+            <field name="arch" type="xml">
+                <graph string='graph_atnds' type="bar">
+                    <field name="name"/>
+                    <field name="n_of_attendees" type="measure"/>
+                </graph>
+            </field>
+        </record>
+    </data>
+</odoo>

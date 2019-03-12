@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record model="openacademy.session" id="session88">
+            <field name="name">Session_test1</field>
+            <field name="duration">2018-03-16</field>
+            <field name="number_of_seats">30</field>
+            <field name="related_Course_id" ref="openacademy.curso1"/>
+        </record>
+        <record model="openacademy.session" id="session99">
+            <field name="name">Session_test2</field>
+            <field name="duration">24</field>
+            <field name="number_of_seats">2</field>
+            <field name="related_Course_id" ref="openacademy.curso1"/>
+        </record>
+    </data>
+</odoo>
