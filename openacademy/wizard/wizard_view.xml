@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <!--FORM VIEW FOR WIZARD-->
+        <record id="session_wizard_form" model="ir.ui.view">
+            <field name="name">WIZARD_FORM</field>
+            <field name="model">wizard</field>
+            <field name="arch" type="xml">
+                <form string="Update session/partner">
+                    <group>
+                        <field name="sessions"/>
+                        <field name="attendees"/>
+                    </group>
+                    <footer>
+                        <button string="Update" name="add_attendees" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="session_wizard_action"
+            name="Update session/partner"
+            src_model="session"
+            res_model="wizard"
+            view_type="form"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+        />
+    </data>
+</odoo>

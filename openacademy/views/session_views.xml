@@ -6,18 +6,19 @@
             <field name="model">session</field>
             <field name="priority" eval="1"/>
             <field name="arch" type="xml">
-                <tree string="SESSIONS (TREE VIEW)">
+                <tree string="SESSIONS (TREE VIEW)" decoration-danger="duration&gt;15" decoration-info="duration&lt;5" editable="bottom">
                     <field name="name"/>
                     <field name="start_date"/>
                     <field name="duration"/>
+                    <field name="end_date"/>
                     <field name="num_seats"/>
+                    <field name="taken_seats_percent" widget="progressbar"/>
                     <field name="course_id"/>
-                    <field name="instructor_id"/>
-                    <field name="responsible_id"/>
+                    <field name="course_description"/>
+                    <field name="instructor_id"/><button string="view" name="view_action" type="object" class="btn-primary"/>
                 </tree>
             </field>
         </record>
-
 
         <!--FORM VIEW FOR MODEL SESSION-->
         <record model="ir.ui.view" id="session_form">
@@ -26,27 +27,36 @@
             <field name="priority" eval="2"/>
             <field name="arch" type="xml">
                 <form>
-                    <group string="Information of the session">
-                        <field name="name"/>
-                        <field name="start_date"/>
-                        <field name="duration"/>
-                        <field name="num_seats"/>
-                        <field name="course_id"/>
-                        <field name="instructor_id"/>
-                        <field name="responsible_id"/>
-                    </group>
+                    <header>
+                        <button states="draft" class="oe_highlight" string="Confirm" name="confirm_action" type="object"/>
+                        <button states="confirmed,done" string="Re-edit" name="reedit_action" type="object"/>
+                        <button states="confirmed" class="oe_highlight" string="Finish" name="finish_action" type="object"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group string="Information of the session">
+                            <field name="name"/>
+                            <field name="start_date"/>
+                            <field name="duration"/>
+                            <field name="end_date"/>
+                            <field name="num_seats"/>
+                            <field name="taken_seats_percent" widget="progressbar"/>
+                            <field name="course_id"/>
+                            <field name="course_description"/>
+                            <field name="instructor_id"/>
+                        </group>
 
-                    <notebook>
-                        <page string="Attendees">
-                            <group string="Attendees for this session">
-                                <field name="attendees" nolabel="1"/>
-                            </group>
-                        </page>
-                    </notebook>
+                        <notebook>
+                            <page string="Attendees">
+                                <group string="Attendees for this session">
+                                    <field name="attendees" nolabel="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
                 </form>
             </field>
         </record>
-
 
         <!--SEARCH VIEW FOR MODEL SESSION-->
         <record model="ir.ui.view" id="session_search">
@@ -60,9 +70,100 @@
                     <field name="duration"/>
                     <field name="num_seats"/>
                     <field name="course_id"/>
+                    <field name="course_description"/>
                     <field name="instructor_id"/>
-                    <field name="responsible_id"/>
                 </search>
+            </field>
+        </record>
+
+        <!--KANBAN VIEW FOR MODEL SESSION-->
+        <record model="ir.ui.view" id="session_kanban">
+            <field name="name">SESSION_KANBAN</field> <!--este nombre no se mostrará-->
+            <field name="model">session</field>
+            <field name="priority" eval="4"/>
+            <field name="arch" type="xml">
+                <kanban default_group_by="course_id">
+                    <field name="color"/>
+                    <field name="name"/>
+                    <field name="instructor_id"/>
+                    <field name="start_date"/>
+                    <field name="duration"/>
+                    <field name="num_seats"/>
+                    <field name="taken_seats_percent"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_color_{{kanban_getcolor(record.color.raw_value)}}
+                                                oe_kanban_global_click_edit oe_semantic_html_override
+                                                oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
+                                <div class="oe_dropdown_kanban">
+                                    <div class="oe_dropdown_toggle">
+                                        <i class="fa fa-bars fa-lg"/>
+                                        <ul class="oe_dropdown_menu">
+                                            <li>
+                                                <a type="delete">Delete</a>
+                                            </li>
+                                            <li>
+                                                <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="oe_clear"></div>
+                                </div>
+                                <div t-attf-class="oe_kanban_content">
+                                    <!--Color: <field name="color"/><br />-->
+                                    <b>Session: </b><field name="name"/><br />
+                                    <b>Instructor: </b><field name="instructor_id"/><br />
+                                    <b>Start date: </b><field name="start_date"/><br />
+                                    <b>Duration: </b><field name="duration"/><br />
+                                    <b>Number of seats: </b><field name="num_seats"/><br />
+                                    <b>Percentage of seats: </b><field name="taken_seats_percent" widget="progressbar"/><br />
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!--CALENDAR VIEW FOR MODEL SESSION-->
+        <record model="ir.ui.view" id="session_cal">
+            <field name="name">SESSION_CALENDAR</field> <!--este nombre no se mostrará-->
+            <field name="model">session</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+                <calendar string="Session calendar"
+                          color = "color"
+                          date_start="start_date"
+                          date_stop="end_date">
+                    <field name="course_id"/>
+                    <field name="instructor_id"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!--GANTT VIEW FOR MODEL SESSION-->
+        <record model="ir.ui.view" id="session_gantt">
+            <field name="name">SESSION_GANTT</field> <!--este nombre no se mostrará-->
+            <field name="model">session</field>
+            <field name="priority" eval="6"/>
+            <field name="arch" type="xml">
+                <gantt string="Session Gantt"
+                       date_start="start_date"
+                       date_delay="duration_hours"
+                       default_group_by="instructor_id"/>
+            </field>
+        </record>
+
+        <!-- GRAPH VIEW FOR MODEL SESSION -->
+        <record model="ir.ui.view" id="session_graph">
+            <field name="name">SESSION_GRAPH</field>
+            <field name="model">session</field>
+            <field name="priority" eval="7"/>
+            <field name="arch" type="xml">
+                <graph string="Attendees per course">
+                    <field name="course_id"/>
+                    <field name="num_attendees" type="measure"/>
+                </graph>
             </field>
         </record>
     </data>
