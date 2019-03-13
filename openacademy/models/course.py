@@ -8,7 +8,7 @@ class Course(models.Model):
 
     title = fields.Char(required=True, string="Title")
     description = fields.Text(required=True, string="Description")
-    responsible_id = fields.Many2one('res.partner', 'Responsible')
+    responsible_id = fields.Many2one('res.users', 'Responsible')
     session_ids = fields.One2many('openacademy.session', 'course_id', 'Sessions')
 
     _sql_constraints = [

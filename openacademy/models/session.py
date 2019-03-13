@@ -12,10 +12,14 @@ class Session(models.Model):
     name = fields.Char(required=True, string="Name")
     start_date = fields.Date(required=True, string="Start date", default=fields.Date.today)
     duration = fields.Integer(required=True, string="Duration (D)")
+    duration_h_comp = fields.Integer(compute='_compute_duration_h', string="Duration (h)")
     seats = fields.Integer(required=True, string="Number of seats")
     course_id = fields.Many2one('openacademy.course', 'Related course')
     instructor = fields.Many2one('res.partner', 'Instructor')
     attend_ids = fields.Many2many('res.partner', 'attend_session_rel')
+    color = fields.Integer(string="Color")
+
+    total_attendee = fields.Integer(compute='_compute_total_attendee', string="Total attendee", store= True)
 
     taken_seat_per = fields.Integer(compute='_compute_taken_seat_per', string="Taken Seats")
     end_date = fields.Date(compute='_compute_end_date', string="End Date", inverse='_set_end_date')
@@ -40,6 +44,12 @@ class Session(models.Model):
                 }
             }
 
+    @api.multi
+    def edit_session(self):
+        return {'type': 'ir.actions.act_window',
+                'res_model': 'openacademy.session',
+                'view_mode': 'form',
+                'res_id': self.id}
 
     @api.constrains('instructor','attend_ids')
     def _check_valid_instructor(self):
@@ -54,6 +64,21 @@ class Session(models.Model):
                 record.taken_seat_per = 0
             else:
                 record.taken_seat_per = len(record.attend_ids)/record.seats*100
+
+    @api.depends('attend_ids', 'course_id')
+    def _compute_total_attendee(self):
+        for record in self:
+            total = 0;
+            for record2 in self:
+                if record.course_id == record2.course_id:
+                    total+= len(record2.attend_ids)
+            record.total_attendee = total
+
+
+    @api.depends('duration')
+    def _compute_duration_h(self):
+        for record in self:
+            record.duration_h_comp = record.duration * 24
 
     @api.depends('duration', 'start_date')
     def _compute_end_date(self):

@@ -10,7 +10,8 @@
     """,
     'category': 'Training',
     'depends': [
-        'base'
+        'base',
+        'web_gantt'
     ],
     'data': [
         'data/base_data.xml',
