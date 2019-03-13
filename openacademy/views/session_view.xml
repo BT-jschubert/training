@@ -159,4 +159,12 @@
     <menuitem id="session_main_view_icon" name="Sessions" sequence="2"
               parent="openacademy_main_view_icon" action="session_icon_view"/>
 
+     <act_window id="Wizard_session"
+            name="Attendees"
+            src_model="openacademy.session"
+            res_model="openacademy.wizard"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"/>
+
 </odoo>

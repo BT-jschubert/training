@@ -19,6 +19,7 @@
         'views/course_view.xml',
         'views/session_view.xml',
         'views/course_ext_view.xml',
+        'wizard/wizard_view.xml',
 
     ],
     'demo': [
