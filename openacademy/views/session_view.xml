@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.actions.act_window" id="session_icon_view">
+        <field name="name">session</field>
+        <field name="view_type">form</field>
+        <field name="res_model">openacademy.session</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p>
+                No session in database
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="session_form_view">
+        <field name="name">Session form view</field>
+        <field name="model">openacademy.session</field>
+        <field name="arch" type="xml">
+            <form string="Sessions">
+                <group colspan="4">
+                     <group colspan="4" col="4">
+                     <field name="taken_seat_per" widget="progressbar"/>
+                     </group>
+                    <group colspan="2" col="2">
+                        <field name="name"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="duration"/>
+                    </group>
+                   <group colspan="2" col="2">
+                        <field name="seats"/>
+                        <field name="course_id"/>
+                        <field name="instructor" domain="['|',('is_instructor', '=', True),('category_id', 'child_of', [%(openacademy.teacher_tag)d])]"/>
+                    </group>
+                     <notebook colspan="4">
+                        <page string="Attendees">
+                            <field name="attend_ids" nolabel="1"/>
+                        </page>
+                         <page string="Course Description">
+                            <field name="course_description" nolabel="1"/>
+                        </page>
+
+                    </notebook>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="session_search_view">
+        <field name="name">Session search view</field>
+        <field name="model">openacademy.session</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="duration"/>
+                <field name="seats"/>
+                <field name="course_id"/>
+                <field name="instructor"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="session_tree_view">
+        <field name="name">Session tree view</field>
+        <field name="model">openacademy.session</field>
+        <field name="arch" type="xml">
+            <tree string="Courses">
+                <field name="taken_seat_per" widget="progressbar"/>
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="duration"/>
+                <field name="seats"/>
+                <field name="course_id"/>
+                <field name="instructor"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="session_main_view_icon" name="Sessions" sequence="2"
+              parent="openacademy_main_view_icon" action="session_icon_view"/>
+
+</odoo>
