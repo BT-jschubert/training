@@ -15,6 +15,7 @@
     ],
     'data': [
         'data/base_data.xml',
+        'data/cron.xml',
         'views/openacademy_main_view.xml',
         'views/course_view.xml',
         'views/session_view.xml',

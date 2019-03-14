@@ -18,13 +18,23 @@ class Session(models.Model):
     instructor = fields.Many2one('res.partner', 'Instructor')
     attend_ids = fields.Many2many('res.partner', 'attend_session_rel')
     color = fields.Integer(string="Color")
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('confirmed', 'Confirmed'),
+        ('done', 'Done')], default='draft')
 
     total_attendee = fields.Integer(compute='_compute_total_attendee', string="Total attendee", store= True)
 
     taken_seat_per = fields.Integer(compute='_compute_taken_seat_per', string="Taken Seats")
-    end_date = fields.Date(compute='_compute_end_date', string="End Date", inverse='_set_end_date')
+    end_date = fields.Date(compute='_compute_end_date', string="End Date", inverse='_set_end_date', store=True)
     is_full = fields.Boolean(compute='_compute_is_full', string="Full",search='_search_full')
     course_description = fields.Text(related='course_id.description')
+
+    @api.model
+    def updateStateCron(self):
+        sessionsToUpdate = self.search(['&',('state', '=', 'confirmed'),('end_date', '<', datetime.now().date())])
+        for session in sessionsToUpdate:
+            session.state = 'done'
 
     @api.onchange('seats')
     def _onchange_seats(self):
@@ -101,6 +111,17 @@ class Session(models.Model):
         domain = [('id', 'in', records.ids)]
         return domain
 
+    @api.one
+    def change_status_confirme(self):
+        self.state = 'confirmed'
+
+    @api.one
+    def change_status_draft(self):
+        self.state = 'draft'
+
+    @api.one
+    def change_status_done(self):
+        self.state = 'done'
 
     @api.depends('taken_seat_per')
     def _compute_is_full(self):

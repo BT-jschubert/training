@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
+    <data noupdate ="1">
 
         <!-- TAGS FOR RETRIEVING THE DEMO ACCOUNTS -->
         <record id="teacher_tag" model="res.partner.category">

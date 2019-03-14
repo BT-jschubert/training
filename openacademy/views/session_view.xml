@@ -12,11 +12,18 @@
         </field>
     </record>
 
-    <record model="ir.ui.view" id="session_form_view">
+ <record model="ir.ui.view" id="session_form_view">
         <field name="name">Session form view</field>
         <field name="model">openacademy.session</field>
         <field name="arch" type="xml">
             <form string="Sessions">
+                <header>
+                    <button name="change_status_confirme" states="draft" string="Confirme" type="object" class="oe_highlight"/>
+                    <button name="change_status_draft" states="confirmed,done" string="Back to draft" type="object" class="oe_highlight"/>
+                    <button name="change_status_done" states="confirmed" string="done" type="object" class="oe_highlight"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
                 <group colspan="4">
                      <group colspan="4" col="4">
                      <field name="taken_seat_per" widget="progressbar"/>
@@ -42,6 +49,7 @@
 
                     </notebook>
                 </group>
+                </sheet>
             </form>
         </field>
     </record>
@@ -148,6 +156,7 @@
                                         <field name="instructor"/>
                                     </div>
                                 </div>
+                                 <div><field name="state"/></div>
                             </div>
                         </div>
                     </t>
