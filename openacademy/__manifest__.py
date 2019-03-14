@@ -15,6 +15,9 @@
     ],
     'data': [
         'data/base_data.xml',
+        'reports/report_session.xml',
+        'security/security.xml',
+        'security/ir.model.access.csv',
         'data/cron.xml',
         'views/openacademy_main_view.xml',
         'views/course_view.xml',

@@ -1,8 +1,8 @@
 from datetime import timedelta, datetime
 
-from AptUrl.Helpers import _
 
-from odoo import api, fields, models
+from odoo import api, fields, models,_
+
 from odoo.exceptions import ValidationError, RedirectWarning, except_orm
 
 
