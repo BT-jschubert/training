@@ -11,7 +11,8 @@
     'category': 'Training',
     'depends': [
         'base',
-        'web_gantt'
+        'web_gantt',
+        'board'
     ],
     'data': [
         'data/base_data.xml',
