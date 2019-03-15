@@ -1,9 +1,15 @@
-from datetime import timedelta, datetime
+from datetime import datetime
+from datetime import timedelta
 
+from odoo import api
+from odoo import fields
+from odoo import models
 
-from odoo import api, fields, models,_
+from odoo.exceptions import ValidationError
+from odoo.exceptions import RedirectWarning
+from odoo.exceptions import except_orm
 
-from odoo.exceptions import ValidationError, RedirectWarning, except_orm
+from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 
 
 class Session(models.Model):
@@ -32,7 +38,7 @@ class Session(models.Model):
 
     @api.model
     def updateStateCron(self):
-        sessionsToUpdate = self.search(['&',('state', '=', 'confirmed'),('end_date', '<', datetime.now().date())])
+        sessionsToUpdate = self.search(['&',('state', '=', 'confirmed'),('end_date', '>', datetime.now().date())])
         for session in sessionsToUpdate:
             session.state = 'done'
 
@@ -93,13 +99,13 @@ class Session(models.Model):
     @api.depends('duration', 'start_date')
     def _compute_end_date(self):
         for record in self:
-            record.end_date = (datetime.strptime(record.start_date, '%Y-%m-%d')+timedelta(days=record.duration-1)).date()
+            record.end_date = (datetime.strptime(record.start_date, DEFAULT_SERVER_DATE_FORMAT)+timedelta(days=record.duration-1)).date()
 
     def _set_end_date(self):
         for record in self:
-            if not (record.start_date) or datetime.strptime(record.start_date, '%Y-%m-%d') > datetime.strptime(record.end_date, '%Y-%m-%d'):
+            if not (record.start_date) or datetime.strptime(record.start_date, DEFAULT_SERVER_DATE_FORMAT) > datetime.strptime(record.end_date, DEFAULT_SERVER_DATE_FORMAT):
                 continue
-            record.duration = (datetime.strptime(record.end_date, '%Y-%m-%d').date()-datetime.strptime(record.start_date, '%Y-%m-%d').date()).days+1
+            record.duration = (datetime.strptime(record.end_date, DEFAULT_SERVER_DATE_FORMAT).date()-datetime.strptime(record.start_date, DEFAULT_SERVER_DATE_FORMAT).date()).days+1
 
     def _search_full(self, operator, args = None):
 
