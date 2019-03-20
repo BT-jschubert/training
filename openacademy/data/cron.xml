@@ -5,7 +5,7 @@
             <field name="name">Sessions: confirmed => done</field>
             <field name="model_id" ref="openacademy.model_openacademy_session"/>
             <field name="state">code</field>
-            <field name="code">model.updateStateCron()</field>
+            <field name="code">model.update_state_cron()</field>
             <field name="interval_number">1</field>
             <field name="interval_type">minutes</field>
             <field name="numbercall">-1</field>

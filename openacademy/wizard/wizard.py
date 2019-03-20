@@ -1,7 +1,7 @@
-from odoo import api, fields, models
+from odoo import fields, models
+
 
 class Wizard(models.TransientModel):
-
     _name = 'openacademy.wizard'
 
     session_ids = fields.Many2many('openacademy.session', 'wizard_session')

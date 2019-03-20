@@ -51,7 +51,7 @@
                     context="{'group_by': 'responsible_id'}"/>
                 </group>
                 <filter name="course_i_am_resp" string="I am responsible"
-                    domain="[('responsible_id.id', '=', uid)]"/>
+                    domain="[('responsible_id', '=', uid)]"/>
             </search>
         </field>
     </record>

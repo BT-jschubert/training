@@ -1,14 +1,11 @@
-# -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
 {
     'name': 'OpenAcademy',
-    'version': '1.0',
+    'version': '11.0.0.0.0',
     'summary': 'First training module',
     'sequence': 30,
-    'description': """
-
-    """,
+    'author': 'brain-tec AG',
     'category': 'Training',
+    'license': '',
     'depends': [
         'base',
         'web_gantt',

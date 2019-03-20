@@ -122,7 +122,7 @@
         <field name="arch" type="xml">
             <graph string="Sessions" type="bar">
                 <field name="course_id" type="row"/>
-                <field name="total_attendee" type="measure"/>
+                <field name="attend_ids" type="measure"/>
             </graph>
         </field>
     </record>
@@ -176,7 +176,7 @@
             target="new"
             key2="client_action_multi"/>
 
-    #dashboard
+    <!-- dashboard -->
 
     <record model="ir.actions.act_window" id="act_session_graph">
         <field name="name">Attendees by course</field>
