@@ -10,6 +10,9 @@
                 No courses in database
             </p>
         </field>
+        <field name="context">
+            {'search_default_course_i_am_resp': 1}
+        </field>
     </record>
 
     <record model="ir.ui.view" id="course_form_view">
@@ -20,10 +23,14 @@
                 <group colspan="4">
                     <group colspan="2" col="2">
                         <field name="title"/>
+                        <field name="responsible_id"/>
                     </group>
                     <notebook colspan="4">
                         <page string="Description">
                             <field name="description" nolabel="1"/>
+                        </page>
+                         <page string="Sessions">
+                            <field name="session_ids" nolabel="1"/>
                         </page>
                     </notebook>
                 </group>
@@ -38,6 +45,13 @@
             <search>
                 <field name="title"/>
                 <field name="description"/>
+                <field name="responsible_id"/>
+                <group string="Group By" >
+                <filter name="group_by_responsible" string="Responsible"
+                    context="{'group_by': 'responsible_id'}"/>
+                </group>
+                <filter name="course_i_am_resp" string="I am responsible"
+                    domain="[('responsible_id.id', '=', uid)]"/>
             </search>
         </field>
     </record>
@@ -49,6 +63,7 @@
             <tree string="Courses">
                 <field name="title"/>
                 <field name="description"/>
+                <field name="responsible_id"/>
             </tree>
         </field>
     </record>

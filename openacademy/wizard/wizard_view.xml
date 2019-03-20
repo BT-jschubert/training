@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="wizard_form_view">
+        <field name="name">Session form view</field>
+        <field name="model">openacademy.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Attendees">
+                <group colspan="4">
+                        <field name="session_ids" />
+                        <field name="partner_ids"/>
+                </group>
+                <footer>
+                    <button name="save_attendees" type="object" string="Save attendees" class="btn-primary"/>
+                    <button string="Cancel" class="btn btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -10,11 +10,22 @@
     """,
     'category': 'Training',
     'depends': [
-        'base'
+        'base',
+        'web_gantt',
+        'board'
     ],
     'data': [
+        'data/base_data.xml',
+        'reports/report_session.xml',
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        'data/cron.xml',
         'views/openacademy_main_view.xml',
         'views/course_view.xml',
+        'views/session_view.xml',
+        'views/course_ext_view.xml',
+        'wizard/wizard_view.xml',
+
     ],
     'demo': [
         'demo/course_demo.xml'

@@ -46,6 +46,20 @@
             </field>
         </record>
 
+          <record id="demo_session_fr1" model="openacademy.session">
+            <field name="name">FR A1</field>
+            <field name="seats">20</field>
+            <field name ="course_id" ref="demo_french_course"></field>
+            <field name ="duration">2</field>
+        </record>
+
+        <record id="demo_session_fr2" model="openacademy.session">
+            <field name="name">FR A2</field>
+            <field name="seats">15</field>
+            <field name ="course_id" ref="demo_french_course"></field>
+            <field name ="duration">3</field>
+        </record>
+
         <record id="demo_security_course" model="openacademy.course">
             <field name="title">Security course</field>
             <field name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis elit sit

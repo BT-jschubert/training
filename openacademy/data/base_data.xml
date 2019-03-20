@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate ="1">
+
+        <!-- TAGS FOR RETRIEVING THE DEMO ACCOUNTS -->
+        <record id="teacher_tag" model="res.partner.category">
+            <field name="name">Teachers</field>
+        </record>
+        <record id="level1_tag" model="res.partner.category">
+            <field name="name">Level 1</field>
+            <field name="parent_id" ref="openacademy.teacher_tag"></field>
+        </record>
+        <record id="level2_tag" model="res.partner.category">
+            <field name="name">Level 2</field>
+            <field name="parent_id" ref="openacademy.teacher_tag"></field>
+        </record>
+    </data>
+</odoo>

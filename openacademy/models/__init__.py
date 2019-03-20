@@ -1,1 +1,1 @@
-from . import course
+from . import course, session, partner
