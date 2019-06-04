@@ -5,3 +5,5 @@ class Course(models.Model):
     _rec_name = 'title'
     title = fields.Char()
     description = fields.Char()
+    responsible = fields.Many2one("res.users")
+    sessions = fields.One2many("openacademy.session", "course")

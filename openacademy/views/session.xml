@@ -1,0 +1,64 @@
+<odoo>
+    <record model="ir.ui.view" id="session_tree_view">
+        <field name="name">session.tree</field>
+        <field name="model">openacademy.session</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <tree string="Sessions">
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="duration"/>
+                <field name="seats"/>
+                <field name="course"/>
+                <field name="instructor"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="session_form_view">
+        <field name="name">session.form</field>
+        <field name="model">openacademy.session</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <form string="Session form">
+                <group colspan="4">
+                    <group colspan="2" col="2">
+                        <separator string="Title" colspan="2"/>
+                        <field name="name"/>
+                        <field name="start_date"/>
+                        <field name="duration"/>
+                    </group>
+                    <group colspan="2" col="2">
+                        <separator string="Title" colspan="2"/>
+                        <field name="seats"/>
+                        <field name="course"/>
+                        <field name="instructor"/>
+                    </group>
+                </group>
+
+                <group colspan="4">
+                    <notebook colspan="4">
+                        <page string="Attendees">
+                            <field name="attendees" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </group>
+            </form>
+        </field>
+    </record>
+
+     <record model="ir.ui.view" id="session_search_view">
+        <field name="name">search</field>
+        <field name="model">openacademy.session</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="duration"/>
+                <field name="seats"/>
+                <field name="course"/>
+                <field name="instructor"/>
+            </search>
+        </field>
+    </record>
+</odoo>

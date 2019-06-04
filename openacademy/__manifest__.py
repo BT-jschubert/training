@@ -13,6 +13,7 @@
     'data': [
         'data/menu.xml',
         'views/course.xml',
+        'views/session.xml',
     ],
     # data files containing optionally loaded demonstration data
     'demo': [

@@ -1,18 +1,19 @@
 <odoo>
     <record model="ir.ui.view" id="tree_course">
-        <field name="name">tree</field>
+        <field name="name">course.tree</field>
         <field name="model">openacademy.course</field>
         <field name="priority" eval="16"/>
         <field name="arch" type="xml">
             <tree string="Courses">
                 <field name="title"/>
                 <field name="description"/>
+                <field name="responsible"/>
             </tree>
         </field>
     </record>
 
     <record model="ir.ui.view" id="form_course">
-        <field name="name">form</field>
+        <field name="name">course.form</field>
         <field name="model">openacademy.course</field>
         <field name="priority" eval="16"/>
         <field name="arch" type="xml">
@@ -21,11 +22,15 @@
                     <group colspan="2" col="2">
                         <separator string="Title" colspan="2"/>
                         <field name="title"/>
+                        <field name="responsible"/>
                     </group>
 
                     <notebook colspan="4">
                         <page string="Description">
                             <field name="description" nolabel="1"/>
+                        </page>
+                        <page string="Sessions">
+                            <field name="sessions" nolabel="1"/>
                         </page>
                     </notebook>
                 </group>
@@ -40,6 +45,7 @@
             <search>
                 <field name="title"/>
                 <field name="description"/>
+                <field name="responsible"/>
             </search>
         </field>
     </record>
