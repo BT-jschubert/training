@@ -1,0 +1,46 @@
+<odoo>
+    <record model="ir.ui.view" id="tree_course">
+        <field name="name">tree</field>
+        <field name="model">openacademy.course</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <tree string="Courses">
+                <field name="title"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="form_course">
+        <field name="name">form</field>
+        <field name="model">openacademy.course</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <form string="Idea form">
+                <group colspan="4">
+                    <group colspan="2" col="2">
+                        <separator string="Title" colspan="2"/>
+                        <field name="title"/>
+                    </group>
+
+                    <notebook colspan="4">
+                        <page string="Description">
+                            <field name="description" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </group>
+            </form>
+        </field>
+    </record>
+
+     <record model="ir.ui.view" id="course_search">
+        <field name="name">search</field>
+        <field name="model">openacademy.course</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="title"/>
+                <field name="description"/>
+            </search>
+        </field>
+    </record>
+</odoo>
