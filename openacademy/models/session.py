@@ -10,8 +10,8 @@ class Session(models.Model):
     duration = fields.Integer(help="Duration in days")
     seats = fields.Integer(string="Number of seats")
     course = fields.Many2one("openacademy.course", requred=True)
-    instructor = fields.Many2one("res.partner")
-    attendees = fields.Many2many("res.partner", relation="session_attendee_rel", column1="partner", column2="attendee")
+    instructor = fields.Many2one("res.partner", domain=lambda self: self._instructor_domain())
+    attendees = fields.Many2many("res.partner", relation="session_attendee_rel", column1="session", column2="partner")
     taken_seats = fields.Float(compute='_compute_taken_seats')
 
     @api.depends('seats')
@@ -29,3 +29,6 @@ class Session(models.Model):
             if not (r.duration and r.start_date):
                 continue
             r.duration = (fields.Date.from_string(r.end_date) - fields.Date.from_string(r.start_date)).days
+
+    def _instructor_domain(self):
+        return ['|', ('is_instructor', '=', True), ('category_id', 'in', (self.env.ref('openacademy.child_tag1').id, self.env.ref('openacademy.child_tag2').id))]

@@ -1,0 +1,30 @@
+<odoo>
+    <record model="ir.ui.view" id="res_partner_ext_form_view">
+        <field name="name">openacademy.res.partner.form.ext</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='function']" position="after">
+                <field name="is_instructor" string="Instructor"/>
+            </xpath>
+            <xpath expr="//page[@name='sales_purchases']" position="after">
+                <page string="Sessions">
+                    <field name="sessions" nolabel="1"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="res_partner_ext_search_view">
+        <field name="name">openacademy.res.partner.search.ext</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <search>
+                <separator/>
+                <filter string="Instructor" name="is_instructor"/>
+            </search>
+        </field>
+    </record>
+</odoo>

@@ -12,8 +12,10 @@
     # data files always loaded at installation
     'data': [
         'data/menu.xml',
+        'data/tags.xml',
         'views/course.xml',
         'views/session.xml',
+        'views/res_partner.xml',
     ],
     # data files containing optionally loaded demonstration data
     'demo': [
