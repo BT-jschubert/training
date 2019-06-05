@@ -32,3 +32,23 @@ class Session(models.Model):
 
     def _instructor_domain(self):
         return ['|', ('is_instructor', '=', True), ('category_id', 'in', (self.env.ref('openacademy.child_tag1').id, self.env.ref('openacademy.child_tag2').id))]
+
+    @api.onchange('seats')
+    def _onchange_seats(self):
+        if self.seats < 0:
+            return {
+                'warning': {
+                    'title': "Wrong number of seats",
+                    'message': "Seats must be greater than zero",
+                }
+            }
+
+    @api.onchange('attendees')
+    def _onchange_seats(self):
+        if len(self.attendees) > self.seats:
+            return {
+                'warning': {
+                    'title': "Wrong number of attendees",
+                    'message': "Attendees can not be grater than seats",
+                }
+            }
