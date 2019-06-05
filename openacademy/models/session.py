@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo import exceptions
 import datetime
 
 
@@ -52,3 +53,9 @@ class Session(models.Model):
                     'message': "Attendees can not be grater than seats",
                 }
             }
+
+    @api.constrains('instructor', 'attendees')
+    def _check_instructor_not_in_attendees(self):
+        for record in self:
+            if record.instructor in record.attendees:
+                raise exceptions.ValidationError("Instructor %s present in Atendees list" % record.instructor.name)
