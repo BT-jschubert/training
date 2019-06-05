@@ -26,11 +26,13 @@
                         <separator string="Title" colspan="2"/>
                         <field name="name"/>
                         <field name="start_date"/>
+                        <field name="end_date"/>
                         <field name="duration"/>
+                        <field name="seats"/>
+                        <field name="taken_seats" widget="progressbar"/>
                     </group>
                     <group colspan="2" col="2">
                         <separator string="Title" colspan="2"/>
-                        <field name="seats"/>
                         <field name="course"/>
                         <field name="instructor"/>
                     </group>
