@@ -3,13 +3,14 @@
         <field name="name">openacademy.session.tree</field>
         <field name="model">openacademy.session</field>
         <field name="arch" type="xml">
-            <tree string="Sessions">
+            <tree string="Sessions" decoration-info="duration&lt;5" decoration-danger="duration&gt;15" editable="bottom">
                 <field name="name"/>
                 <field name="start_date"/>
                 <field name="duration"/>
                 <field name="seats"/>
                 <field name="course"/>
                 <field name="instructor"/>
+                <button name="%(sessions_form_action)d" type="action" help="edit" icon="fa-pencil"/>
             </tree>
         </field>
     </record>

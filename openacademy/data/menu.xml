@@ -38,4 +38,13 @@
             sequence="1"
             action="openacademy.sessions_action"
     />
+
+    <record model="ir.actions.act_window" id="sessions_form_action">
+        <field name="name">Sessions form</field>
+        <field name="res_model">openacademy.session</field>
+        <field name="view_mode">form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Click to open form</p>
+        </field>
+    </record>
 </odoo>
