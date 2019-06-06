@@ -9,7 +9,7 @@ class Course(models.Model):
         ('title_unique_check', 'UNIQUE(title)', "Title must be unique"),
     ]
 
-    title = fields.Char()
-    description = fields.Char()
-    responsible = fields.Many2one("res.users")
-    sessions = fields.One2many("openacademy.session", "course")
+    title = fields.Char(string="Title")
+    description = fields.Char(string="Description")
+    responsible = fields.Many2one("res.users", string="Responsible")
+    sessions = fields.One2many("openacademy.session", "course", string="Sessions")

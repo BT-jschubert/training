@@ -7,15 +7,15 @@ import datetime
 
 class Session(models.Model):
     _name = 'openacademy.session'
-    name = fields.Char()
-    start_date = fields.Date(default=fields.Date.today)
-    end_date = fields.Date(store=True, compute='_compute_end_date', inverse='_inverse_end_date')
-    duration = fields.Integer(help="Duration in days")
+    name = fields.Char(string="Name")
+    start_date = fields.Date(default=fields.Date.today, string="Start date")
+    end_date = fields.Date(store=True, compute='_compute_end_date', inverse='_inverse_end_date', string="End date")
+    duration = fields.Integer(help="Duration in days", string="Duration")
     seats = fields.Integer(string="Number of seats")
-    course = fields.Many2one("openacademy.course", requred=True)
-    instructor = fields.Many2one("res.partner", domain=lambda self: self._instructor_domain())
-    attendees = fields.Many2many("res.partner", relation="session_attendee_rel", column1="session", column2="partner")
-    taken_seats = fields.Float(compute='_compute_taken_seats')
+    course = fields.Many2one("openacademy.course", requred=True, string="Course")
+    instructor = fields.Many2one("res.partner", domain=lambda self: self._instructor_domain(), string="Instructor")
+    attendees = fields.Many2many("res.partner", relation="session_attendee_rel", column1="session", column2="partner", string="Attendees")
+    taken_seats = fields.Float(compute='_compute_taken_seats', string="Taken seats")
 
     @api.depends('seats')
     def _compute_taken_seats(self):
