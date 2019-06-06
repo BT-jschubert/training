@@ -44,7 +44,7 @@
     </record>
 
      <record model="ir.ui.view" id="session_search_view">
-        <field name="name">openacademy.search</field>
+        <field name="name">openacademy.session.search</field>
         <field name="model">openacademy.session</field>
         <field name="arch" type="xml">
             <search>
