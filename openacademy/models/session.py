@@ -7,6 +7,7 @@ import datetime
 
 class Session(models.Model):
     _name = 'openacademy.session'
+
     name = fields.Char(string="Name")
     start_date = fields.Date(default=fields.Date.today, string="Start date")
     end_date = fields.Date(store=True, compute='_compute_end_date', inverse='_inverse_end_date', string="End date")
