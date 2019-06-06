@@ -92,4 +92,14 @@
             </kanban>
         </field>
     </record>
+
+    <record model="ir.ui.view" id="session_calendar_view">
+        <field name="name">openacademy.session.calendar</field>
+        <field name="model">openacademy.session</field>
+        <field name="arch" type="xml">
+            <calendar string="Session Calendar" date_start="start_date" date_stop="end_date" color="instructor">
+                <field name="name"/>
+            </calendar>
+        </field>
+    </record>
 </odoo>
