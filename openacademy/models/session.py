@@ -17,6 +17,7 @@ class Session(models.Model):
     instructor = fields.Many2one("res.partner", domain=lambda self: self._instructor_domain(), string="Instructor")
     attendees = fields.Many2many("res.partner", relation="session_attendee_rel", column1="session", column2="partner", string="Attendees")
     taken_seats = fields.Float(compute='_compute_taken_seats', string="Taken seats")
+    color = fields.Integer(string="Color");
 
     @api.depends('seats')
     def _compute_taken_seats(self):
