@@ -30,7 +30,7 @@ class Session(models.Model):
 
     def _inverse_end_date(self):
         for r in self:
-            if not (r.duration and r.start_date):
+            if not (r.end_date and r.start_date):
                 continue
             r.duration = (fields.Date.from_string(r.end_date) - fields.Date.from_string(r.start_date)).days
 
