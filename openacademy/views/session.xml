@@ -111,4 +111,15 @@
             </gantt>
         </field>
     </record>
+
+    <record model="ir.ui.view" id="session_graph_view">
+        <field name="name">openacademy.session.graph</field>
+        <field name="model">openacademy.session</field>
+        <field name="arch" type="xml">
+            <graph string="Attendees by Courses">
+                <field name="course"/>
+                <field name="attendees_count" type="measure"/>
+            </graph>
+        </field>
+    </record>
 </odoo>

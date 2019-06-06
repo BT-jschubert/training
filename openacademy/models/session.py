@@ -19,6 +19,7 @@ class Session(models.Model):
     taken_seats = fields.Float(compute='_compute_taken_seats', string="Taken seats")
     color = fields.Integer(string="Color")
     duration_in_hours = fields.Float(string="Duration in hours", compute='_compute_duration_in_hours')
+    attendees_count = fields.Integer(compute='_compute_attendees_count', string="Number of attendees", store=True)
 
     @api.depends('seats')
     def _compute_taken_seats(self):
@@ -69,3 +70,8 @@ class Session(models.Model):
     def _compute_duration_in_hours(self):
         for r in self:
             r.duration_in_hours = r.duration * 24
+
+    @api.depends('attendees')
+    def _compute_attendees_count(self):
+        for r in self:
+            r.attendees_count = len(r.attendees)
