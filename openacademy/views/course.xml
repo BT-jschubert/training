@@ -16,22 +16,19 @@
         <field name="model">openacademy.course</field>
         <field name="arch" type="xml">
             <form string="Course">
-                <group colspan="4">
-                    <group colspan="2" col="2">
-                        <separator string="Title" colspan="2"/>
-                        <field name="title"/>
-                        <field name="responsible"/>
-                    </group>
-
-                    <notebook colspan="4">
-                        <page string="Description">
-                            <field name="description" nolabel="1"/>
-                        </page>
-                        <page string="Sessions">
-                            <field name="sessions" nolabel="1"/>
-                        </page>
-                    </notebook>
+                <group string="Group title">
+                    <field name="title"/>
+                    <field name="responsible"/>
                 </group>
+
+                <notebook colspan="4">
+                    <page string="Description">
+                        <field name="description" nolabel="1"/>
+                    </page>
+                    <page string="Sessions">
+                        <field name="sessions" nolabel="1"/>
+                    </page>
+                </notebook>
             </form>
         </field>
     </record>

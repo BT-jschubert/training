@@ -19,23 +19,18 @@
         <field name="model">openacademy.session</field>
         <field name="arch" type="xml">
             <form string="Session form">
-                <group colspan="4">
-                    <group colspan="2" col="2">
-                        <separator string="Title" colspan="2"/>
-                        <field name="name"/>
-                        <field name="start_date"/>
-                        <field name="end_date"/>
-                        <field name="duration"/>
-                        <field name="seats"/>
-                        <field name="taken_seats" widget="progressbar"/>
-                    </group>
-                    <group colspan="2" col="2">
-                        <separator string="Title" colspan="2"/>
-                        <field name="course"/>
-                        <field name="instructor"/>
-                    </group>
+                <group colspan="2" col="4" string="Group title">
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="duration"/>
+                    <field name="seats"/>
+                    <field name="taken_seats" widget="progressbar"/>
                 </group>
-
+                <group colspan="2" col="4" string="Group title">
+                    <field name="course"/>
+                    <field name="instructor"/>
+                </group>
                 <group colspan="4">
                     <notebook colspan="4">
                         <page string="Attendees">
