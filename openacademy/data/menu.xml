@@ -1,11 +1,11 @@
 <odoo>
     <menuitem
-            id="menu_openacademy"
+            id="main_menu"
             name="Open Academy"
             sequence="0"
     />
 
-    <record model="ir.actions.act_window" id="act_courses">
+    <record model="ir.actions.act_window" id="courses_action">
         <field name="name">Courses</field>
         <field name="res_model">openacademy.course</field>
         <field name="view_mode">tree,form</field>
@@ -15,14 +15,14 @@
     </record>
 
     <menuitem
-            id="menu_courses"
-            parent="menu_openacademy"
+            id="courses_menu"
+            parent="openacademy.main_menu"
             name="Courses"
             sequence="0"
-            action="act_courses"
+            action="openacademy.courses_action"
     />
 
-    <record model="ir.actions.act_window" id="act_sessions">
+    <record model="ir.actions.act_window" id="sessions_action">
         <field name="name">Sessions</field>
         <field name="res_model">openacademy.session</field>
         <field name="view_mode">tree,form</field>
@@ -32,10 +32,10 @@
     </record>
 
     <menuitem
-            id="menu_sessions"
-            parent="menu_openacademy"
+            id="sessions_menu"
+            parent="openacademy.main_menu"
             name="Sessions"
             sequence="1"
-            action="act_sessions"
+            action="openacademy.sessions_action"
     />
 </odoo>
