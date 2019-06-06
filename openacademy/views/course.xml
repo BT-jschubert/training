@@ -1,6 +1,6 @@
 <odoo>
     <record model="ir.ui.view" id="tree_course">
-        <field name="name">course.tree</field>
+        <field name="name">openacademy.course.tree</field>
         <field name="model">openacademy.course</field>
         <field name="arch" type="xml">
             <tree string="Courses">
@@ -12,7 +12,7 @@
     </record>
 
     <record model="ir.ui.view" id="form_course">
-        <field name="name">course.form</field>
+        <field name="name">openacademy.course.form</field>
         <field name="model">openacademy.course</field>
         <field name="arch" type="xml">
             <form string="Course">
@@ -34,7 +34,7 @@
     </record>
 
      <record model="ir.ui.view" id="course_search">
-        <field name="name">search</field>
+        <field name="name">openacademy.course.search</field>
         <field name="model">openacademy.course</field>
         <field name="arch" type="xml">
             <search>
