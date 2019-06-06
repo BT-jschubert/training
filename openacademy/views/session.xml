@@ -10,7 +10,7 @@
                 <field name="seats"/>
                 <field name="course"/>
                 <field name="instructor"/>
-                <button name="%(sessions_form_action)d" type="action" help="edit" icon="fa-pencil"/>
+                <button name="edit_session_btn" type="object" string="edit" icon="fa-pencil"/>
             </tree>
         </field>
     </record>

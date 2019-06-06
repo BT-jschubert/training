@@ -16,6 +16,7 @@
         'views/course.xml',
         'views/session.xml',
         'views/res_partner.xml',
+        'wizard/wizard_view.xml',
     ],
     # data files containing optionally loaded demonstration data
     'demo': [

@@ -75,3 +75,13 @@ class Session(models.Model):
     def _compute_attendees_count(self):
         for r in self:
             r.attendees_count = len(r.attendees)
+
+    @api.multi
+    def edit_session_btn(self):
+        return {
+            'view_type': 'form',
+            'view_mode': 'form,tree',
+            'res_model': 'openacademy.session',
+            'res_id': self.id,
+            'type': 'ir.actions.act_window',
+        }
