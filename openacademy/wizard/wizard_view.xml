@@ -5,7 +5,8 @@
         <field name="arch" type="xml">
             <form string="Attendees">
                 <group>
-                    <field name="attendees" nolabel="1"/>
+                    <field name="attendees"/>
+                    <field name="sessions"/>
                 </group>
                 <footer>
                     <button name="save_attendees" type="object" string="Save"/>

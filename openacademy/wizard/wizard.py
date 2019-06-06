@@ -4,8 +4,9 @@ from odoo import fields
 class Wizard(models.TransientModel):
     _name = 'openacademy.wizard'
 
-    session = fields.Many2one('openacademy.session', string="Session", required=True, default=lambda self: self._context.get('active_id'))
+    sessions = fields.Many2many('openacademy.session', string="Sessions")
     attendees = fields.Many2many('res.partner', string="Attendees")
 
     def save_attendees(self):
-        self.session.attendees = self.session.attendees + self.attendees
+        for s in self.sessions:
+            s.attendees = s.attendees + self.attendees
