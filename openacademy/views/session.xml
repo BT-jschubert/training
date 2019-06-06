@@ -102,4 +102,13 @@
             </calendar>
         </field>
     </record>
+
+    <record model="ir.ui.view" id="session_gantt_view">
+        <field name="name">openacademy.session.gantt</field>
+        <field name="model">openacademy.session</field>
+        <field name="arch" type="xml">
+            <gantt string="Sessions Gantt" date_start="start_date" date_stop="end_date" default_group_by='instructor'>
+            </gantt>
+        </field>
+    </record>
 </odoo>

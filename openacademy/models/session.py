@@ -17,7 +17,8 @@ class Session(models.Model):
     instructor = fields.Many2one("res.partner", domain=lambda self: self._instructor_domain(), string="Instructor")
     attendees = fields.Many2many("res.partner", relation="session_attendee_rel", column1="session", column2="partner", string="Attendees")
     taken_seats = fields.Float(compute='_compute_taken_seats', string="Taken seats")
-    color = fields.Integer(string="Color");
+    color = fields.Integer(string="Color")
+    duration_in_hours = fields.Float(string="Duration in hours", compute='_compute_duration_in_hours')
 
     @api.depends('seats')
     def _compute_taken_seats(self):
@@ -63,3 +64,8 @@ class Session(models.Model):
         for record in self:
             if record.instructor in record.attendees:
                 raise exceptions.ValidationError("Instructor %s present in Atendees list" % record.instructor.name)
+
+    @api.depends('duration')
+    def _compute_duration_in_hours(self):
+        for r in self:
+            r.duration_in_hours = r.duration * 24
