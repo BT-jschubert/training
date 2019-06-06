@@ -21,7 +21,7 @@ class Session(models.Model):
     @api.depends('seats')
     def _compute_taken_seats(self):
         for r in self:
-            r.taken_seats = (len(r.attendees)/r.seats)*100 if r.seats > 0 else 0
+            r.taken_seats = (len(r.attendees)/r.seats)*100.0 if r.seats > 0 else 0.0
 
     @api.depends('duration', 'start_date')
     def _compute_end_date(self):
