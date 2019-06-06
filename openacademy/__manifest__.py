@@ -20,5 +20,6 @@
     # data files containing optionally loaded demonstration data
     'demo': [
         'demo/course.xml',
+        'demo/session.xml',
     ],
 }

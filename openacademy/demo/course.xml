@@ -1,11 +1,11 @@
-<odoo>
+<odoo noupdate="1">
     <data>
         <record model="openacademy.course" id="course_1">
-            <field name="title">First Course</field>
+            <field name="title">First Course 1</field>
             <field name="description">First Course description</field>
         </record>
         <record model="openacademy.course" id="course_2">
-            <field name="title">Second Course</field>
+            <field name="title">Second Course 2</field>
             <field name="description">2 Course description</field>
         </record>
     </data>
