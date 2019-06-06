@@ -2,7 +2,6 @@
     <record model="ir.ui.view" id="session_tree_view">
         <field name="name">session.tree</field>
         <field name="model">openacademy.session</field>
-        <field name="priority" eval="16"/>
         <field name="arch" type="xml">
             <tree string="Sessions">
                 <field name="name"/>
@@ -18,7 +17,6 @@
     <record model="ir.ui.view" id="session_form_view">
         <field name="name">session.form</field>
         <field name="model">openacademy.session</field>
-        <field name="priority" eval="16"/>
         <field name="arch" type="xml">
             <form string="Session form">
                 <group colspan="4">

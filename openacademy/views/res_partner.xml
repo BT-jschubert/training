@@ -3,7 +3,6 @@
         <field name="name">openacademy.res.partner.form.ext</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
-        <field name="priority" eval="16"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='function']" position="after">
                 <field name="is_instructor" string="Instructor"/>

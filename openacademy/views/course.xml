@@ -2,7 +2,6 @@
     <record model="ir.ui.view" id="tree_course">
         <field name="name">course.tree</field>
         <field name="model">openacademy.course</field>
-        <field name="priority" eval="16"/>
         <field name="arch" type="xml">
             <tree string="Courses">
                 <field name="title"/>
@@ -15,7 +14,6 @@
     <record model="ir.ui.view" id="form_course">
         <field name="name">course.form</field>
         <field name="model">openacademy.course</field>
-        <field name="priority" eval="16"/>
         <field name="arch" type="xml">
             <form string="Idea form">
                 <group colspan="4">
