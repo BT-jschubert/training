@@ -12,6 +12,9 @@
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">Click to create a course</p>
         </field>
+        <field name="context">
+            {'search_default_i_am_the_responsible': 1}
+        </field>
     </record>
 
     <menuitem

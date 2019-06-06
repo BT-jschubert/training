@@ -41,6 +41,7 @@
                 <field name="title"/>
                 <field name="description"/>
                 <field name="responsible"/>
+                <filter string="I am the responsible" name="i_am_the_responsible" domain="[('responsible', '=', uid)]"/>
             </search>
         </field>
     </record>
