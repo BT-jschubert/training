@@ -2,6 +2,7 @@ from odoo import models
 from odoo import fields
 from odoo import api
 from odoo import exceptions
+from odoo import _
 import datetime
 
 
@@ -46,8 +47,8 @@ class Session(models.Model):
         if self.seats < 0:
             return {
                 'warning': {
-                    'title': "Wrong number of seats",
-                    'message': "Seats must be greater than zero",
+                    'title': _("Wrong number of seats"),
+                    'message': _("Seats must be greater than zero"),
                 }
             }
 
@@ -56,8 +57,8 @@ class Session(models.Model):
         if len(self.attendees) > self.seats:
             return {
                 'warning': {
-                    'title': "Wrong number of attendees",
-                    'message': "Attendees can not be grater than seats",
+                    'title': _("Wrong number of attendees"),
+                    'message': _("Attendees can not be grater than seats"),
                 }
             }
 
@@ -65,7 +66,7 @@ class Session(models.Model):
     def _check_instructor_not_in_attendees(self):
         for record in self:
             if record.instructor in record.attendees:
-                raise exceptions.ValidationError("Instructor %s present in Atendees list" % record.instructor.name)
+                raise exceptions.ValidationError(_("Instructor %s present in Atendees list") % record.instructor.name)
 
     @api.depends('duration')
     def _compute_duration_in_hours(self):

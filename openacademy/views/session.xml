@@ -83,14 +83,18 @@
                                 <div class="oe_clear"></div>
                             </div>
                             <div t-attf-class="oe_kanban_content">
-                                <b>Name: </b>
-                                <field name="name"/>
-                                <br/>
-                                <b>Start date: </b>
-                                <field name="start_date"/>
-                                <br/>
-                                <b>Duration: </b>
-                                <field name="duration"/>
+                                <div class="oe_clear">
+                                    <b>Name: </b>
+                                    <field name="name"/>
+                                </div>
+                                <div class="oe_clear">
+                                    <b>Start date: </b>
+                                    <field name="start_date"/>
+                                </div>
+                                <div class="oe_clear">
+                                    <b>Duration: </b>
+                                    <field name="duration"/>
+                                </div>
                             </div>
                         </div>
                     </t>
