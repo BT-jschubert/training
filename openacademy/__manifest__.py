@@ -18,6 +18,8 @@
         'views/session.xml',
         'views/res_partner.xml',
         'wizard/wizard_view.xml',
+        'security/security.xml',
+        'security/ir.model.access.csv',
     ],
     # data files containing optionally loaded demonstration data
     'demo': [
