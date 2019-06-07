@@ -1,7 +1,7 @@
 {
     'name': "Open Academy",
     'version': '1.0',
-    'depends': ['base'],
+    'depends': ['base', 'board'],
     'author': "Alessandro Mascherpa",
     'category': 'training',
     'without_demo': False,
@@ -11,16 +11,17 @@
     ,
     # data files always loaded at installation
     'data': [
-        'data/menu.xml',
         'data/tags.xml',
         'data/scheduler.xml',
         'views/course.xml',
         'views/session.xml',
+        'views/session_board.xml',
         'views/res_partner.xml',
         'wizard/wizard_view.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
         'reports/session_reports.xml',
+        'data/menu.xml',
     ],
     # data files containing optionally loaded demonstration data
     'demo': [
