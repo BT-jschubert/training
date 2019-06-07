@@ -20,6 +20,7 @@ class Session(models.Model):
     color = fields.Integer(string="Color")
     duration_in_hours = fields.Float(string="Duration in hours", compute='_compute_duration_in_hours')
     attendees_count = fields.Integer(compute='_compute_attendees_count', string="Number of attendees", store=True)
+    state = fields.Selection((('draft','Draft'), ('confirmed','Confirmed'), ('done','Done'),), string="State", default="draft")
 
     @api.depends('seats')
     def _compute_taken_seats(self):
@@ -85,3 +86,30 @@ class Session(models.Model):
             'res_id': self.id,
             'type': 'ir.actions.act_window',
         }
+
+    @api.multi
+    def mv_state_2_draft_btn(self):
+        self._change_state('draft')
+
+    @api.multi
+    def mv_state_2_confirmed_btn(self):
+        self._change_state('confirmed')
+
+    @api.multi
+    def mv_state_2_done_btn(self):
+        self._change_state('done')
+
+    def _change_state(self, new_state):
+        if self.state == 'draft':
+            self.state = new_state if new_state == 'confirmed' else self.state
+        elif self.state == 'confirmed':
+            self.state = new_state
+        elif self.state == 'done':
+            self.state = new_state if new_state == 'draft' else self.state
+
+    @api.model
+    def cron_change_state(self):
+        records = self.search([])
+        for r in records:
+            if r.end_date and r.state == 'confirmed' and r.end_date < fields.Date.today():
+                r.state = 'done'

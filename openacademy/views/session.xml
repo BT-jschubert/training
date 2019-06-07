@@ -20,6 +20,12 @@
         <field name="model">openacademy.session</field>
         <field name="arch" type="xml">
             <form string="Session form">
+                <header>
+                    <button name="mv_state_2_draft_btn" type="object" string="move to draft" states="confirmed,done"/>
+                    <button name="mv_state_2_confirmed_btn" type="object" string="move to confirmed" states="draft"/>
+                    <button name="mv_state_2_done_btn" type="object" string="move to done" states="confirmed"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
                 <group colspan="2" col="4" string="Group title">
                     <field name="name"/>
                     <field name="start_date"/>

@@ -13,6 +13,7 @@
     'data': [
         'data/menu.xml',
         'data/tags.xml',
+        'data/scheduler.xml',
         'views/course.xml',
         'views/session.xml',
         'views/res_partner.xml',
