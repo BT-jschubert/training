@@ -20,6 +20,7 @@
         'wizard/wizard_view.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
+        'reports/session_reports.xml',
     ],
     # data files containing optionally loaded demonstration data
     'demo': [
