@@ -86,23 +86,17 @@ class Session(models.Model):
 
     @api.multi
     def mv_state_2_draft_btn(self):
-        self._change_state('draft')
+        self.state = 'draft'
 
     @api.multi
     def mv_state_2_confirmed_btn(self):
-        self._change_state('confirmed')
+        if self.state == 'draft':
+            self.state = 'confirmed'
 
     @api.multi
     def mv_state_2_done_btn(self):
-        self._change_state('done')
-
-    def _change_state(self, new_state):
-        if self.state == 'draft':
-            self.state = new_state if new_state == 'confirmed' else self.state
-        elif self.state == 'confirmed':
-            self.state = new_state
-        elif self.state == 'done':
-            self.state = new_state if new_state == 'draft' else self.state
+        if self.state == 'confirmed':
+            self.state = 'done'
 
     @api.model
     def cron_change_state(self):
