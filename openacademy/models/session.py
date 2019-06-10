@@ -44,7 +44,7 @@ class Session(models.Model):
             return {
                 'warning': {
                     'title': _("Wrong number of seats"),
-                    'message': _("Seats must be greater than zero"),
+                    'message': _("Number of seats must be greater than zero"),
                 }
             }
 
@@ -54,7 +54,7 @@ class Session(models.Model):
             return {
                 'warning': {
                     'title': _("Wrong number of attendees"),
-                    'message': _("Attendees can not be grater than seats"),
+                    'message': _("Number of attendees can not be greater than seats"),
                 }
             }
 
@@ -62,7 +62,7 @@ class Session(models.Model):
     def _check_instructor_not_in_attendees(self):
         for record in self:
             if record.instructor in record.attendees:
-                raise exceptions.ValidationError(_("Instructor %s present in Atendees list") % record.instructor.name)
+                raise exceptions.ValidationError(_("Instructor %s is present in Atendees list") % record.instructor.name)
 
     @api.depends('duration')
     def _compute_duration_in_hours(self):
