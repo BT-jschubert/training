@@ -21,7 +21,7 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'reports/session_reports.xml',
-        'data/menu.xml',
+        'views/menu.xml',
     ],
     # data files containing optionally loaded demonstration data
     'demo': [
