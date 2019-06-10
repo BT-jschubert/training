@@ -100,7 +100,6 @@ class Session(models.Model):
 
     @api.model
     def cron_change_state(self):
-        records = self.search([])
+        records = self.search(['&', ('state', '=', 'confirmed'), ('end_date', '<', fields.Date.today())])
         for r in records:
-            if r.end_date and r.state == 'confirmed' and r.end_date < fields.Date.today():
-                r.state = 'done'
+            r.state = 'done'
