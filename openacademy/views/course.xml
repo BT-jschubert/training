@@ -42,6 +42,7 @@
                 <field name="description"/>
                 <field name="responsible"/>
                 <filter string="I am the responsible" name="i_am_the_responsible" domain="[('responsible', '=', uid)]"/>
+                <filter string="Has all sessions full" name="has_all_sessions_full" domain="[('has_all_sessions_full', '=', True)]"/>
                 <group string="Group by">
                     <filter string="Responsible" name="group_by_responsible" context="{'group_by': 'responsible'}"/>
                 </group>
