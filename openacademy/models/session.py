@@ -1,8 +1,4 @@
-from odoo import models
-from odoo import fields
-from odoo import api
-from odoo import exceptions
-from odoo import _
+from odoo import models, fields, api, exceptions, _
 import datetime
 
 
