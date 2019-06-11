@@ -56,5 +56,5 @@ args = {
     'duration': random.randint(1,10),
     'seats': random.randint(1,20),
 }
-course_id = call(url, "object", "execute", DB, uid, PASS, 'openacademy.session', 'create', args)
+session_id = call(url, "object", "execute", DB, uid, PASS, 'openacademy.session', 'create', args)
 print(course_id)
