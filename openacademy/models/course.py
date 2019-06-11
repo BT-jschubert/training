@@ -19,8 +19,8 @@ class Course(models.Model):
         records = self.env['openacademy.course'].search([('sessions', '!=', False)])
         ids = []
         for r in records:
+            sessions_full = True
             for s in r.sessions:
-                sessions_full = True
                 if s.seats > len(s.attendees):
                     sessions_full = False
                     break
