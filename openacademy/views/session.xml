@@ -70,6 +70,9 @@
         <field name="arch" type="xml">
             <kanban default_group_by="course">
                 <field name="color"/>
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="duration"/>
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_color_{{kanban_getcolor(record.color.raw_value)}}">
