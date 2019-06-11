@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="session_state_2_done_cron" model="ir.cron">
+            <field name="name">Open Academy: change state in session</field>
+            <field name="interval_number">1</field>
+            <field name="active" eval="True"/>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False" />
+            <field name="model_id" ref="openacademy.model_openacademy_session" />
+            <field name="state">code</field>
+            <field name="code">model.cron_change_state()</field>
+        </record>
+    </data>
+</odoo>

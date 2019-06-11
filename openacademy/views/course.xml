@@ -1,0 +1,53 @@
+<odoo>
+    <record model="ir.ui.view" id="tree_course">
+        <field name="name">openacademy.course.tree</field>
+        <field name="model">openacademy.course</field>
+        <field name="arch" type="xml">
+            <tree string="Courses">
+                <field name="title"/>
+                <field name="description"/>
+                <field name="responsible"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="form_course">
+        <field name="name">openacademy.course.form</field>
+        <field name="model">openacademy.course</field>
+        <field name="arch" type="xml">
+            <form string="Course">
+                <group string="Group title">
+                    <field name="title"/>
+                    <field name="responsible"/>
+                </group>
+
+                <notebook colspan="4">
+                    <page string="Description">
+                        <field name="description" nolabel="1"/>
+                    </page>
+                    <page string="Sessions">
+                        <field name="sessions" nolabel="1"/>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+     <record model="ir.ui.view" id="course_search">
+        <field name="name">openacademy.course.search</field>
+        <field name="model">openacademy.course</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="title"/>
+                <field name="description"/>
+                <field name="responsible"/>
+                <filter string="I am the responsible" name="i_am_the_responsible" domain="[('responsible', '=', uid)]"/>
+                <filter string="Has all sessions full" name="has_all_sessions_full" domain="[('has_all_sessions_full', '=', True)]"/>
+                <filter string="Has any session not full" name="has_all_sessions_full" domain="[('has_all_sessions_full', '=', False)]"/>
+                <group string="Group by">
+                    <filter string="Responsible" name="group_by_responsible" context="{'group_by': 'responsible'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>
