@@ -13,6 +13,7 @@
     'data': [
         'data/tags.xml',
         'data/scheduler.xml',
+        'views/menu.xml',
         'views/course.xml',
         'views/session.xml',
         'views/session_board.xml',
@@ -21,7 +22,6 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'reports/session_reports.xml',
-        'views/menu.xml',
     ],
     # data files containing optionally loaded demonstration data
     'demo': [
