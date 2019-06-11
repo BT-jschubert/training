@@ -26,5 +26,8 @@ class Course(models.Model):
                     break
             if sessions_full:
                 ids.append(r.id)
+        rule_operator = 'not in'
+        if operator == '=' and value:
+            rule_operator = 'in'
 
-        return[('id', 'in', ids)]
+        return[('id', rule_operator, ids)]
