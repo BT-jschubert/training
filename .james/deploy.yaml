@@ -1,0 +1,14 @@
+git_repositories:
+  - repository: git@github.com:brain-tec/odoo.git
+    branch: 13.0
+    commitortag: 789881e6d2d04c64cb08853a9182ac477ae7721f
+    maindir: True
+    shallow: True
+  - repository: git@github.com:brain-tec/enterprise.git
+    branch: 13.0
+    commitortag: c37c269b290ec05cff33dbe3c54271ba904342c5
+    maindir: True
+    shallow: True
+  - repository: git@github.com:brain-tec/training.git
+    branch: 13.0
+    mainrepo: True
