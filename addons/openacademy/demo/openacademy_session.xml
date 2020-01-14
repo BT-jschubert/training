@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="session" id="demo_session">
+            <field name="name">Demo Course 1</field>
+            <field name="course_id" ref="openacademy.demo_course"/>
+            <field name="start_date">2020-01-14T00:00:00+0000</field>
+            <field name="seats">25</field>
+            <field name="duration">120</field>
+            <field name="instructor_id" ref="base.user_admin"/>
+        </record>
+    </data>
+</odoo>

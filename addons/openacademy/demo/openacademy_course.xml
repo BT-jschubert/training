@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="course" id="demo_course">
+            <field name="name">Demo Course 1</field>
+            <field name="description">Demo Course 1 Description</field>
+            <field name="responsible_id" ref="base.user_admin"/>
+        </record>
+    </data>
+</odoo>

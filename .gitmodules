@@ -1,0 +1,4 @@
+[submodule "enterprise"]
+	path = enterprise
+	url = git@github.com:brain-tec/enterprise.git
+	branch = 13.0

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="openacademy_show_courses" model="ir.actions.act_window">
+            <field name="name">Courses</field>
+            <field name="res_model">course</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first course!</p>
+            </field>
+        </record>
+        <record id="openacademy_show_sessions" model="ir.actions.act_window">
+            <field name="name">Sessions</field>
+            <field name="res_model">session</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first session!</p>
+            </field>
+        </record>
+
+        <menuitem id="menu_openacademy" name="OpenAcademy" groups="base.group_user"/>
+        <menuitem
+                id="openacademy_course_menu"
+                name="Courses"
+                parent="menu_openacademy"
+                action="openacademy_show_courses"
+                sequence="16"/>
+        <menuitem
+                id="openacademy_session_menu"
+                name="Sessions"
+                parent="menu_openacademy"
+                action="openacademy_show_sessions"
+                sequence="16"/>
+    </data>
+
+
+</odoo>
