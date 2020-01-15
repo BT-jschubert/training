@@ -1,55 +1,51 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <data>
-        <record id="course_tree_view" model="ir.ui.view">
-            <field name="name">Courses</field>
-            <field name="model">course</field>
-            <field name="arch" type="xml">
-                <tree string="Course - Tree">
+    <record id="course_tree_view" model="ir.ui.view">
+        <field name="name">Courses</field>
+        <field name="model">course</field>
+        <field name="arch" type="xml">
+            <tree string="Course - Tree">
+                <field name="name"/>
+                <field name="responsible_id"/>
+                <field name="description"/>
+                <field name="full_course"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="course_form_view" model="ir.ui.view">
+        <field name="name">Courses</field>
+        <field name="model">course</field>
+        <field name="arch" type="xml">
+            <form>
+
+                <group colspan="4">
                     <field name="name"/>
                     <field name="responsible_id"/>
-                    <field name="description"/>
                     <field name="full_course"/>
-                </tree>
-            </field>
-        </record>
+                </group>
+                <notebook colspan="4">
+                    <page string="Details">
+                        <field name="description"/>
+                    </page>
+                    <page string="Sessions">
+                        <field name="sessions"/>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
 
-        <record id="course_form_view" model="ir.ui.view">
-            <field name="name">Courses</field>
-            <field name="model">course</field>
-            <field name="arch" type="xml">
-                <form>
-                    <group colspan="4">
-                        <group colspan="4">
-                            <field name="name"/>
-                            <field name="responsible_id"/>
-                            <field name="full_course"/>
-                        </group>
-                        <notebook colspan="4">
-                            <page string="Details">
-                                <field name="description"/>
-                            </page>
-                            <page string="Sessions">
-                                <field name="sessions"/>
-                            </page>
-                        </notebook>
-                    </group>
-                </form>
-            </field>
-        </record>
-        <record id="course_search_view" model="ir.ui.view">
-            <field name="name">Courses</field>
-            <field name="model">course</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="name"/>
+    <record id="course_search_view" model="ir.ui.view">
+        <field name="name">Courses</field>
+        <field name="model">course</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
 
-                    <field name="description"/>
-                    <field name="full_course"/>
+                <field name="description"/>
+                <field name="full_course"/>
 
-                </search>
-            </field>
-        </record>
-
-    </data>
+            </search>
+        </field>
+    </record>
 </odoo>

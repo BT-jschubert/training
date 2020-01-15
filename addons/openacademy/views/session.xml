@@ -1,72 +1,71 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <data>
-        <record id="session_tree_view" model="ir.ui.view">
-            <field name="name">sessions</field>
-            <field name="model">session</field>
-            <field name="arch" type="xml">
-                <tree string="session - Tree">
-                    <field name="name"/>
-                    <field name="start_date"/>
-                    <field name="duration"/>
-                    <field name="end_date"/>
-                    <field name="instructor_id"/>
-                    <field name="seats"/>
-                    <field name="seats_taken" widget="progressbar"/>
-                    <field name="course_id"/>
-                </tree>
-            </field>
-        </record>
 
-        <record id="session_form_view" model="ir.ui.view">
-            <field name="name">sessions</field>
-            <field name="model">session</field>
-            <field name="arch" type="xml">
-                <form>
+    <record id="session_tree_view" model="ir.ui.view">
+        <field name="name">sessions</field>
+        <field name="model">session</field>
+        <field name="arch" type="xml">
+            <tree string="session - Tree">
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="duration"/>
+                <field name="end_date"/>
+                <field name="instructor_id"/>
+                <field name="seats"/>
+                <field name="seats_taken" widget="progressbar"/>
+                <field name="course_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="session_form_view" model="ir.ui.view">
+        <field name="name">sessions</field>
+        <field name="model">session</field>
+        <field name="arch" type="xml">
+            <form>
+                <group colspan="4">
                     <group colspan="4">
-                        <group colspan="4">
-                            <field name="name"/>
-                            <field name="start_date"/>
-                            <field name="end_date"/>
-                            <field name="course_id"/>
-                            <field name="instructor_id"/>
-                            <field name="seats"/>
-                            <field name="seats_taken" widget="progressbar"/>
-                            <field name="duration"/>
-                        </group>
-                        <notebook colspan="2">
-                            <page string="Attendees">
-                                <group>
-                                    <field name="is_full"/>
-                                </group>
-                                <group>
-                                    <field name="attendees" domain="[('company_type', '=', 'person')]"/>
-                                </group>
-                            </page>
-                            <page string="Details">
-                                <group>
-                                    <field name="description"/>
-                                </group>
-                            </page>
-                        </notebook>
+                        <field name="name"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="course_id"/>
+                        <field name="instructor_id"/>
+                        <field name="seats"/>
+                        <field name="seats_taken" widget="progressbar"/>
+                        <field name="duration"/>
                     </group>
-                </form>
-            </field>
-        </record>
+                    <notebook colspan="2">
+                        <page string="Attendees">
+                            <group>
+                                <field name="is_full"/>
+                            </group>
+                            <group>
+                                <field name="attendees" domain="[('company_type', '=', 'person')]"/>
+                            </group>
+                        </page>
+                        <page string="Details">
+                            <group>
+                                <field name="description"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </group>
+            </form>
+        </field>
+    </record>
 
-        <record id="session_search_view" model="ir.ui.view">
-            <field name="name">sessions</field>
-            <field name="model">session</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="name"/>
-                    <field name="instructor_id"/>
-                    <field name="start_date"/>
-                    <field name="course_id"/>
-                    <field name="is_full"/>
-                </search>
-            </field>
-        </record>
+    <record id="session_search_view" model="ir.ui.view">
+        <field name="name">sessions</field>
+        <field name="model">session</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="instructor_id"/>
+                <field name="start_date"/>
+                <field name="course_id"/>
+                <field name="is_full"/>
+            </search>
+        </field>
+    </record>
 
-    </data>
+
 </odoo>

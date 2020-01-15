@@ -4,6 +4,11 @@ from odoo import api, fields, models
 class Course(models.Model):
     _name = 'course'
     _description = 'Courses'
+
+    _sql_constraints = [
+        ('name', 'UNIQUE (name)',  'You can not have two courses with the same name !')
+    ]
+
     name = fields.Text(string='Name')
     description = fields.Html(string='Description')
     responsible_id = fields.Many2one(string='Responsible', comodel_name='res.users')
@@ -22,3 +27,7 @@ class Course(models.Model):
                         if not is_full:
                             break
                 record.full_course = is_full
+
+    def _search_full_courses(self,operator,value):
+       return[('full_course',operator,value)]
+

@@ -4,7 +4,7 @@
     'description': """
     OpenAcademy Description
     """,
-    'depends': ['base','contacts'],
+    'depends': ['base'],
     'author': 'JSchubert',
     'demo': [
         'demo/openacademy_course.xml',
@@ -16,8 +16,8 @@
         'views/openacademy.xml',
         'views/course.xml',
         'views/session.xml',
+        'views/res_partner_ext.xml',
     ],
     'license': 'OPL-1',
     'application': True,
-    'without_demo': False,
 }
