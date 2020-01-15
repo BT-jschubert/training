@@ -9,8 +9,10 @@
                     <field name="name"/>
                     <field name="start_date"/>
                     <field name="duration"/>
+                    <field name="end_date"/>
                     <field name="instructor_id"/>
                     <field name="seats"/>
+                    <field name="seats_taken" widget="progressbar"/>
                     <field name="course_id"/>
                 </tree>
             </field>
@@ -25,20 +27,33 @@
                         <group colspan="4">
                             <field name="name"/>
                             <field name="start_date"/>
+                            <field name="end_date"/>
                             <field name="course_id"/>
                             <field name="instructor_id"/>
                             <field name="seats"/>
+                            <field name="seats_taken" widget="progressbar"/>
                             <field name="duration"/>
                         </group>
-                        <notebook colspan="4">
+                        <notebook colspan="2">
                             <page string="Attendees">
-                                <field name="attendees" domain="[('company_type', '=', 'person')]"/>
+                                <group>
+                                    <field name="is_full"/>
+                                </group>
+                                <group>
+                                    <field name="attendees" domain="[('company_type', '=', 'person')]"/>
+                                </group>
+                            </page>
+                            <page string="Details">
+                                <group>
+                                    <field name="description"/>
+                                </group>
                             </page>
                         </notebook>
                     </group>
                 </form>
             </field>
         </record>
+
         <record id="session_search_view" model="ir.ui.view">
             <field name="name">sessions</field>
             <field name="model">session</field>
@@ -48,6 +63,7 @@
                     <field name="instructor_id"/>
                     <field name="start_date"/>
                     <field name="course_id"/>
+                    <field name="is_full"/>
                 </search>
             </field>
         </record>

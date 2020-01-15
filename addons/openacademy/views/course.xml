@@ -9,6 +9,7 @@
                     <field name="name"/>
                     <field name="responsible_id"/>
                     <field name="description"/>
+                    <field name="full_course"/>
                 </tree>
             </field>
         </record>
@@ -22,6 +23,7 @@
                         <group colspan="4">
                             <field name="name"/>
                             <field name="responsible_id"/>
+                            <field name="full_course"/>
                         </group>
                         <notebook colspan="4">
                             <page string="Details">
@@ -41,7 +43,10 @@
             <field name="arch" type="xml">
                 <search>
                     <field name="name"/>
+
                     <field name="description"/>
+                    <field name="full_course"/>
+
                 </search>
             </field>
         </record>
