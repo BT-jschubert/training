@@ -13,7 +13,7 @@ class Session(models.Model):
     seats = fields.Integer(string='No of Seats')
     course_id = fields.Many2one('course', ondelete='cascade')
     instructor_id = fields.Many2one('res.partner', ondelete='set null')
-    attendees = fields.Many2many('res.partner', 'session_attendees')
+    attendees = fields.Many2many('res.partner', 'session_attendees', string="Attendees")
 
     description = fields.Html(string='Description', related="course_id.description")
 
